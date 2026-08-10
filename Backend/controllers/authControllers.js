@@ -225,9 +225,15 @@ const logout = async(req, res)=>{
 };
 
 
+// test controller
+const testController = (req, res)=>{
+    res.send("Protected Routes")
+};
+
 
 module.exports = {
     register,
     login,
-    logout
+    logout,
+    testController
 };
