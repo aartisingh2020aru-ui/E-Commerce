@@ -1,10 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import Layout from './Components/Layout/Layout';
+import Home from './Pages/Home';
+
 
 function App() {
   return (
-   <>
-   <h1 className='text-danger'>Hello Duniya!!</h1>
+    <>
+    <Layout>
+      <Home />
+    </Layout>
    </>
   );
 }
