@@ -249,6 +249,12 @@ function Header() {
               <li className="with-rbt-megamenu has-menu-child-item position-static rbt-initial-odo-count">
                 <a href="/blog">Blog</a>
               </li>
+              <li className="with-rbt-megamenu has-menu-child-item position-static rbt-initial-odo-count">
+                <a href="/login">Login</a>
+              </li>
+              <li className="with-rbt-megamenu has-menu-child-item position-static rbt-initial-odo-count">
+                <a href="/registration">Registration</a>
+              </li>
               
             </ul>
           </nav>
