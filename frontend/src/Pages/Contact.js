@@ -226,13 +226,68 @@ function Contact() {
                 </div>
             </div>
 
-            <div className="rbt-component-area rbt-bg-color-gray-light">
-                <div className="container">
-                    <div className="rbt-google-map bg-color-white rbt-section-gap2Top">
-                        <iframe className="w-100" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319" height={600} style={{ border: 0 }} />
+            <div class="rbt-component-area rbt-bg-color-gray-light">
+                <div class="container">
+                    <div class="row row--12">
+                        <div class="col-12 col-lg-9">
+                            <div className="rbt-google-map bg-color-white rbt-section-gap2Top">
+                                <iframe className="w-100" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319" height={600} style={{ border: 0 }} />
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="rbt-sidebar rbt-contact-form-sidebar">
+                                <div class="inner">
+                                    <div class="rbt-title">
+                                        <h3 class="h6 rbt-bold--text rbt-text-color-gray-700 mb--8">Need a Help?</h3>
+                                        <p class="rbt-contact-form-sidebar-text rbt-text-color-gray-500 mb--24">
+                                            we are available 20/7 day 365 always
+                                        </p>
+                                    </div>
+                                    <ul class="rbt-contact-sidebar-social-list">
+                                        <li>
+                                            <a href="tel:+2085550112">
+                                                <span class="icon phone"><i class="fa-sharp fa-solid fa-phone"></i></span>
+                                                <span>(208) 555-0112</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/cdn-cgi/l/email-protection#fe9b869f938e929bbe99939f9792d09d9193">
+                                                <span class="icon email"><i class="fa-sharp fa-solid fa-envelope"></i></span>
+                                                <span><span class="__cf_email__" data-cfemail="3a5f425b574a565f7a5d575b535614595557">[email&#160;protected]</span></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                                <span>Whatsapp</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon pinterest"><i class="fa-brands fa-pinterest-p"></i></span>
+                                                <span>Pinterest</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="thumbnail mt--24">
+                                <img class="rbt-rounded--12" src="assets/images/about/about-10.webp" alt="Contact Image" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div className="row  mt-4">
+                <div className="col-12">
+                    <div className="rbt-watermark-text rbt-watermark-color-var-1 text-center">
+                        <span>Follow Us@Unimart</span>
                     </div>
                 </div>
             </div>
+
 
 
 
