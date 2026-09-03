@@ -14,11 +14,13 @@ function Registration() {
                                         <label htmlFor="name" className="form-label">Full Name</label>
                                         <input type="text" className="form-control" id="name" placeholder="Enter your full name" required />
                                     </div>
+
                                     {/* Email */}
                                     <div className="mb-3">
-                                        <label htmlFor="email" className="form-label">Email Address</label>
+                                        <label htmlFor="email" className="form-label">Email Address </label>
                                         <input type="email" className="form-control" id="email" placeholder="Enter your email" required />
                                     </div>
+
                                     {/* Password */}
                                     <div className="mb-3">
                                         <label htmlFor="password" className="form-label">Password</label>
@@ -27,13 +29,15 @@ function Registration() {
                                             Password must be at least 8 characters.
                                         </div>
                                     </div>
+
                                     {/* Confirm Password */}
                                     <div className="mb-3">
                                         <label htmlFor="confirmPassword" className="form-label">
-                                            Confirm Password
+                                            Confirm Password <span class="text-danger">*</span>
                                         </label>
                                         <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm your password" required />
                                     </div>
+
                                     {/* Terms */}
                                     <div className="mb-3 form-check">
                                         <input type="checkbox" className="form-check-input" id="terms" required />
@@ -44,10 +48,12 @@ function Registration() {
                                             </a>
                                         </label>
                                     </div>
+
                                     {/* Register Button */}
                                     <button type="submit" className="btn btn-primary w-100">
                                         Register
                                     </button>
+
                                     <hr />
                                     {/* Login Link */}
                                     <p className="text-center mb-0">
@@ -56,6 +62,8 @@ function Registration() {
                                             Login
                                         </a>
                                     </p>
+
+                                    
                                 </form>
                             </div>
                         </div>

@@ -9,6 +9,7 @@ import Blog from './Pages/Blog';
 import PageNotFound from './Pages/PageNotFound';
 import Login from './Pages/Login';
 import Registration from './Pages/Registration';
+import Product from './Pages/Product';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path = "/login" element = {<Login/>}/>
           <Route path = "/registration" element = {<Registration/>}/>
           <Route path = "*" element = {<PageNotFound/>}/>
+          <Route path = "/product" element = {<Product/>}/>
         </Routes>
       </Layout>
     </>
