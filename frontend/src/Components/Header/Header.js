@@ -250,14 +250,10 @@ function Header() {
                 <a href="/blog">Blog</a>
               </li>
               <li className="with-rbt-megamenu has-menu-child-item position-static rbt-initial-odo-count">
-                <a href="/login">Login</a>
-              </li>
-              <li className="with-rbt-megamenu has-menu-child-item position-static rbt-initial-odo-count">
-                <a href="/registration">Registration</a>
-              </li>
-              <li className="with-rbt-megamenu has-menu-child-item position-static rbt-initial-odo-count">
                 <a href="/product">Product</a>
               </li>
+              
+              
               
             </ul>
           </nav>
@@ -266,14 +262,17 @@ function Header() {
           <div className="rbt-header-content m--0">
             <ul className="rbt-quick-access rbt-quick-access-var-one">
               <li className="rbt-access-box rbt-scroll-trigger fade_in animation-order-1 rbt-access-box-link ">
-                <a href="#" className="text-portion header-info rbt-special-offprds-offcanvas-activation">
-                  <i className="fa-regular fa-badge-percent" />
-                  <span>Special Offers</span>
+
+                <a href="/login" className="text-portion header-info rbt-special-offprds-offcanvas-activation">
+                  <span>Login</span>
                 </a>
-                <a href="#" className="text-portion  header-info" data-bs-toggle="modal" data-bs-target="#recent-viewModal">
-                  <span>Recent Viewed</span>
+
+                <a href="/registration" className="text-portion header-info rbt-special-offprds-offcanvas-activatin">
+                  <span>Registration</span>
                 </a>
+                
               </li>
+              
             </ul>
           </div>
         </div>
