@@ -52,6 +52,7 @@ function Product() {
             </div>
 
             <div className="row row--12 mt_sm--8 mt_md--8">
+
                 {/* Start Single Card  */}
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
@@ -189,7 +190,7 @@ function Product() {
                     </div>
                 </div>
                 {/* End Single Card  */}
-                {/* Start Single Card  */}
+
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-3">
@@ -301,8 +302,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+                
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-1">
@@ -419,8 +419,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+               
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-4">
@@ -555,8 +554,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+               
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-2">
@@ -692,8 +690,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+               
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-1">
@@ -810,8 +807,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+               
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-3">
@@ -923,8 +919,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+               
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-4 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-2">
@@ -1060,8 +1055,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+               
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-4">
@@ -1196,8 +1190,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+               
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-2">
@@ -1333,8 +1326,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+                
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-3">
@@ -1446,8 +1438,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+             
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-1">
@@ -1564,8 +1555,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+             
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-4">
@@ -1700,8 +1690,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+               
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-2">
@@ -1837,8 +1826,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+                
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-1">
@@ -1955,8 +1943,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+               
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-3">
@@ -2068,8 +2055,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+                
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-2">
@@ -2205,8 +2191,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
-                {/* Start Single Card  */}
+             
                 <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 mt--24">
                     <div className="rbt-card rbt-product-card has-hover-box-shadow">
                         <div className="inner rbt-scroll-trigger fade_in animation-order-4">
@@ -2341,19 +2326,11 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                {/* End Single Card  */}
             </div>
 
 
         </div>
     );
 }
-
-
-
-
-
-
-
 
 export default Product;

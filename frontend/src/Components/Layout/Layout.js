@@ -1,5 +1,6 @@
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { ToastContainer } from 'react-toastify';
 
 function Layout({children }){
     return(
@@ -8,6 +9,7 @@ function Layout({children }){
             <Header/>
 
             <main className="container py-4 flex-grow-1">
+                <ToastContainer />
                 {children}
             </main>
 

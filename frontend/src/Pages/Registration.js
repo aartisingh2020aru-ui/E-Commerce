@@ -1,4 +1,11 @@
+ import {  toast } from 'react-toastify';
 function Registration() {
+
+    function test(){
+         toast.success("Register Successfully!")
+
+    }
+    // test();
     return (
         <div>
 
@@ -8,23 +15,23 @@ function Registration() {
                         <div className="card shadow border-0">
                             <div className="card-body p-4">
                                 <h2 className="text-center mb-4">Registration</h2>
-                                <form>
+                                <form onSubmit={test}>
                                     {/* Full Name */}
                                     <div className="mb-3">
                                         <label htmlFor="name" className="form-label">Full Name</label>
-                                        <input type="text" className="form-control" id="name" placeholder="Enter your full name" required />
+                                        <input type="text" className="form-control" id="name" placeholder="Enter your full name" />
                                     </div>
 
                                     {/* Email */}
                                     <div className="mb-3">
                                         <label htmlFor="email" className="form-label">Email Address </label>
-                                        <input type="email" className="form-control" id="email" placeholder="Enter your email" required />
+                                        <input type="email" className="form-control" id="email" placeholder="Enter your email"  />
                                     </div>
 
                                     {/* Password */}
                                     <div className="mb-3">
                                         <label htmlFor="password" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="password" placeholder="Create a password" minLength={8} required />
+                                        <input type="password" className="form-control" id="password" placeholder="Create a password" minLength={8}  />
                                         <div className="form-text text-danger">
                                             Password must be at least 8 characters.
                                         </div>
@@ -35,12 +42,12 @@ function Registration() {
                                         <label htmlFor="confirmPassword" className="form-label">
                                             Confirm Password <span class="text-danger">*</span>
                                         </label>
-                                        <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm your password" required />
+                                        <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm your password"  />
                                     </div>
 
                                     {/* Terms */}
                                     <div className="mb-3 form-check">
-                                        <input type="checkbox" className="form-check-input" id="terms" required />
+                                        <input type="checkbox" className="form-check-input" id="terms"  />
                                         <label className="form-check-label" htmlFor="terms">
                                             I agree to the
                                             <a href="#" className="text-decoration-none">
