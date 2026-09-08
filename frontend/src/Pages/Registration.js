@@ -1,11 +1,45 @@
- import {  toast } from 'react-toastify';
+import { useState } from 'react';
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 function Registration() {
 
-    function test(){
-         toast.success("Register Successfully!")
+    const navigate = useNavigate();
 
-    }
-    // test();
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [phone, setPhone] = useState("");
+    const [address, setAddress] = useState("");
+
+
+    // form function
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const res = await axios.post(
+                `${process.env.REACT_APP_API}/api/auth/register`,
+                { username, email, password, phone, address }
+            );
+
+            if (res.data.success) {
+                toast.success(res.data.message);
+                navigate("/login");
+            } else {
+                toast.error(res.data.message);
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error("Something went wrong");
+        }
+    };
+
+    // const  test = async(e) =>{
+    //     e.preventDefault();
+    //     toast.success(" Register successfully!");
+
     return (
         <div>
 
@@ -15,39 +49,97 @@ function Registration() {
                         <div className="card shadow border-0">
                             <div className="card-body p-4">
                                 <h2 className="text-center mb-4">Registration</h2>
-                                <form onSubmit={test}>
+
+                                <form onSubmit={handleSubmit}>
+
                                     {/* Full Name */}
                                     <div className="mb-3">
                                         <label htmlFor="name" className="form-label">Full Name</label>
-                                        <input type="text" className="form-control" id="name" placeholder="Enter your full name" />
+
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            name='username'
+                                            value={username}
+                                            onChange={(e) => setUsername(e.target.value)}
+                                            id="name"
+                                            placeholder="Enter your full name" />
+
                                     </div>
 
                                     {/* Email */}
                                     <div className="mb-3">
                                         <label htmlFor="email" className="form-label">Email Address </label>
-                                        <input type="email" className="form-control" id="email" placeholder="Enter your email"  />
+                                        <input
+                                            type="email"
+                                            className="form-control"
+                                            name='email'
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            id="email"
+                                            placeholder="Enter your email" />
                                     </div>
 
                                     {/* Password */}
                                     <div className="mb-3">
                                         <label htmlFor="password" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="password" placeholder="Create a password" minLength={8}  />
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            name='password'
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            id="password"
+                                            placeholder="Create a password" minLength={8} />
                                         <div className="form-text text-danger">
                                             Password must be at least 8 characters.
                                         </div>
                                     </div>
 
-                                    {/* Confirm Password */}
+
+
+                                    {/* phone */}
                                     <div className="mb-3">
-                                        <label htmlFor="confirmPassword" className="form-label">
-                                            Confirm Password <span class="text-danger">*</span>
-                                        </label>
-                                        <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm your password"  />
+                                        <label htmlFor="phone" className="form-label">Phone</label>
+                                        <input
+                                            type="phone"
+                                            className="form-control"
+                                            name='phone'
+                                            value={phone}
+                                            onChange={(e) => setPhone(e.target.value)}
+                                            id="phone"
+                                            placeholder="Create a password" minLength={8}
+                                        />
+
+
+                                        <div className="form-text text-danger">
+                                            Password must be at least 8 characters.
+                                        </div>
                                     </div>
+
+
+                                    {/* address */}
+                                    <div className="mb-3">
+                                        <label htmlFor="address" className="form-label">Address</label>
+                                        <input
+                                            type="address"
+                                            className="form-control"
+                                            name='address'
+                                            value={address}
+                                            onChange={(e) => setAddress(e.target.value)}
+                                            id="address"
+                                            rows="3"
+                                            placeholder="Create a password" minLength={8} />
+
+                                        <div className="form-text text-danger">
+                                            Password must be at least 8 characters.
+                                        </div>
+                                    </div>
+
 
                                     {/* Terms */}
                                     <div className="mb-3 form-check">
-                                        <input type="checkbox" className="form-check-input" id="terms"  />
+                                        <input type="checkbox" className="form-check-input" id="terms" />
                                         <label className="form-check-label" htmlFor="terms">
                                             I agree to the
                                             <a href="#" className="text-decoration-none">
@@ -70,7 +162,7 @@ function Registration() {
                                         </a>
                                     </p>
 
-                                    
+
                                 </form>
                             </div>
                         </div>
