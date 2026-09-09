@@ -137,16 +137,7 @@ function Registration() {
                                     </div>
 
 
-                                    {/* Terms */}
-                                    <div className="mb-3 form-check">
-                                        <input type="checkbox" className="form-check-input" id="terms" />
-                                        <label className="form-check-label" htmlFor="terms">
-                                            I agree to the
-                                            <a href="#" className="text-decoration-none">
-                                                Terms &amp; Conditions
-                                            </a>
-                                        </label>
-                                    </div>
+                                    
 
                                     {/* Register Button */}
                                     <button type="submit" className="btn btn-primary w-100">
