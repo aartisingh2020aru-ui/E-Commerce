@@ -91,9 +91,7 @@ function Registration() {
                                             onChange={(e) => setPassword(e.target.value)}
                                             id="password"
                                             placeholder="Create a password" minLength={8} />
-                                        <div className="form-text text-danger">
-                                            Password must be at least 8 characters.
-                                        </div>
+                                       
                                     </div>
 
 
@@ -102,42 +100,31 @@ function Registration() {
                                     <div className="mb-3">
                                         <label htmlFor="phone" className="form-label">Phone</label>
                                         <input
-                                            type="phone"
+                                            type="text"
                                             className="form-control"
                                             name='phone'
                                             value={phone}
                                             onChange={(e) => setPhone(e.target.value)}
-                                            id="phone"
-                                            placeholder="Create a password" minLength={8}
-                                        />
-
-
-                                        <div className="form-text text-danger">
-                                            Password must be at least 8 characters.
-                                        </div>
+                                            
+                                            placeholder="10-digit phone no."/>
                                     </div>
+                                   
 
 
                                     {/* address */}
                                     <div className="mb-3">
                                         <label htmlFor="address" className="form-label">Address</label>
                                         <input
-                                            type="address"
+                                            type="text"
                                             className="form-control"
                                             name='address'
                                             value={address}
                                             onChange={(e) => setAddress(e.target.value)}
                                             id="address"
                                             rows="3"
-                                            placeholder="Create a password" minLength={8} />
-
-                                        <div className="form-text text-danger">
-                                            Password must be at least 8 characters.
-                                        </div>
+                                            placeholder="full address" />
                                     </div>
 
-
-                                    
 
                                     {/* Register Button */}
                                     <button type="submit" className="btn btn-primary w-100">
