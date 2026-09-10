@@ -28,6 +28,8 @@ function Login() {
                 toast.success(res.data.message);
                 // redirect
                 navigate("/");
+                // reload the crousel
+                window.location.reload();
             }
         } catch (error) {
             console.log(error);
