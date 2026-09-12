@@ -10,6 +10,8 @@ import PageNotFound from './Pages/PageNotFound';
 import Login from './Pages/Login';
 import Registration from './Pages/Registration';
 import Product from './Pages/Product';
+import Dashboard from './Components/Admin/Dashboard';
+import AddProduct from './Components/Admin/AddProduct';
 
 
 function App() {
@@ -25,6 +27,15 @@ function App() {
           <Route path = "/registration" element = {<Registration/>}/>
           <Route path = "*" element = {<PageNotFound/>}/>
           <Route path = "/product" element = {<Product/>}/>
+          <Route path = "/dashboard" element = {<Dashboard/>}/>
+          {/* <Route path = "/products" element = {<Product1/>}/> */}
+          <Route path = "/addproduct" element = {<AddProduct/>}/>
+
+
+
+        
+          
+
         </Routes>
       </Layout>
     </>
