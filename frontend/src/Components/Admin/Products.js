@@ -1,4 +1,4 @@
-function Product1() {
+function Products() {
     return (
         <div className="text-center py-5">
             <h1 className="display-4 fw-bold">
@@ -9,4 +9,4 @@ function Product1() {
     );
 }
 
-export default Product1;
+export default Products;
