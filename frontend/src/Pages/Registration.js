@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import Layout from '../Components/Layout/Layout';
 
 function Registration() {
 
@@ -41,116 +42,118 @@ function Registration() {
     //     toast.success(" Register successfully!");
 
     return (
-        <div>
+        <Layout>
+            <div>
 
-            <div className="container">
-                <div className="row justify-content-center align-items-center min-vh-100">
-                    <div className="col-md-7 col-lg-5">
-                        <div className="card shadow border-0">
-                            <div className="card-body p-4">
-                                <h2 className="text-center mb-4">Registration</h2>
+                <div className="container">
+                    <div className="row justify-content-center align-items-center min-vh-100">
+                        <div className="col-md-7 col-lg-5">
+                            <div className="card shadow border-0">
+                                <div className="card-body p-4">
+                                    <h2 className="text-center mb-4">Registration</h2>
 
-                                <form onSubmit={handleSubmit}>
+                                    <form onSubmit={handleSubmit}>
 
-                                    {/* Full Name */}
-                                    <div className="mb-3">
-                                        <label htmlFor="name" className="form-label">Full Name</label>
+                                        {/* Full Name */}
+                                        <div className="mb-3">
+                                            <label htmlFor="name" className="form-label">Full Name</label>
 
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            name='username'
-                                            value={username}
-                                            onChange={(e) => setUsername(e.target.value)}
-                                            id="name"
-                                            placeholder="Enter your full name" />
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name='username'
+                                                value={username}
+                                                onChange={(e) => setUsername(e.target.value)}
+                                                id="name"
+                                                placeholder="Enter your full name" />
 
-                                    </div>
+                                        </div>
 
-                                    {/* Email */}
-                                    <div className="mb-3">
-                                        <label htmlFor="email" className="form-label">Email Address </label>
-                                        <input
-                                            type="email"
-                                            className="form-control"
-                                            name='email'
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            id="email"
-                                            placeholder="Enter your email" />
-                                    </div>
+                                        {/* Email */}
+                                        <div className="mb-3">
+                                            <label htmlFor="email" className="form-label">Email Address </label>
+                                            <input
+                                                type="email"
+                                                className="form-control"
+                                                name='email'
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                id="email"
+                                                placeholder="Enter your email" />
+                                        </div>
 
-                                    {/* Password */}
-                                    <div className="mb-3">
-                                        <label htmlFor="password" className="form-label">Password</label>
-                                        <input
-                                            type="password"
-                                            className="form-control"
-                                            name='password'
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            id="password"
-                                            placeholder="Create a password" minLength={8} />
-                                       
-                                    </div>
+                                        {/* Password */}
+                                        <div className="mb-3">
+                                            <label htmlFor="password" className="form-label">Password</label>
+                                            <input
+                                                type="password"
+                                                className="form-control"
+                                                name='password'
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
+                                                id="password"
+                                                placeholder="Create a password" minLength={8} />
 
-
-
-                                    {/* phone */}
-                                    <div className="mb-3">
-                                        <label htmlFor="phone" className="form-label">Phone</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            name='phone'
-                                            value={phone}
-                                            onChange={(e) => setPhone(e.target.value)}
-                                            
-                                            placeholder="10-digit phone no."/>
-                                    </div>
-                                   
+                                        </div>
 
 
-                                    {/* address */}
-                                    <div className="mb-3">
-                                        <label htmlFor="address" className="form-label">Address</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            name='address'
-                                            value={address}
-                                            onChange={(e) => setAddress(e.target.value)}
-                                            id="address"
-                                            rows="3"
-                                            placeholder="full address" />
-                                    </div>
+
+                                        {/* phone */}
+                                        <div className="mb-3">
+                                            <label htmlFor="phone" className="form-label">Phone</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name='phone'
+                                                value={phone}
+                                                onChange={(e) => setPhone(e.target.value)}
+
+                                                placeholder="10-digit phone no." />
+                                        </div>
 
 
-                                    {/* Register Button */}
-                                    <button type="submit" className="btn btn-primary w-100">
-                                        Register
-                                    </button>
 
-                                    <hr />
-                                    {/* Login Link */}
-                                    <p className="text-center mb-0">
-                                        Already have an account?
-                                        <a href="/login" className="text-decoration-none">
-                                            Login
-                                        </a>
-                                    </p>
+                                        {/* address */}
+                                        <div className="mb-3">
+                                            <label htmlFor="address" className="form-label">Address</label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                name='address'
+                                                value={address}
+                                                onChange={(e) => setAddress(e.target.value)}
+                                                id="address"
+                                                rows="3"
+                                                placeholder="full address" />
+                                        </div>
 
 
-                                </form>
+                                        {/* Register Button */}
+                                        <button type="submit" className="btn btn-primary w-100">
+                                            Register
+                                        </button>
+
+                                        <hr />
+                                        {/* Login Link */}
+                                        <p className="text-center mb-0">
+                                            Already have an account?
+                                            <a href="/login" className="text-decoration-none">
+                                                Login
+                                            </a>
+                                        </p>
+
+
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
-
-
-
-        </div>
+        </Layout>
     );
 }
 

@@ -18,7 +18,7 @@ import Products from './Components/Admin/Products';
 function App() {
   return (
     <>
-      <Layout>
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -31,14 +31,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/addproduct" element={<AddProduct />} />
           <Route path="/products" element={<Products />} />
-
-
-
-
-
-
+          
         </Routes>
-      </Layout>
+
     </>
   );
 }
