@@ -1,5 +1,6 @@
 import React from "react";
 import './Dashboard.css';
+
 import { ToastContainer, toast } from 'react-toastify';
 import Sidebar from "./Sidebar";
 
@@ -10,6 +11,7 @@ function Layout({ children }) {
             <Sidebar />
             <main className="main">
                 <ToastContainer />
+                
                 <header className="topbar">
                     <div className="search">
                         <input type="text" placeholder="Search anything..." />
@@ -27,7 +29,6 @@ function Layout({ children }) {
                         </div>
                     </div>
                 </header>
-
 
                 {children}
             </main>

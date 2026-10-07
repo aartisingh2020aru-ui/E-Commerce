@@ -7,17 +7,17 @@ function Sidebar() {
                 </div>
                 <div className="menu-title">Main Menu</div>
                 <nav className="menu">
-                    <a href="#" className="active">
+                    <a href="/dashboard" className="active">
                         <div className="icon">📊</div>
                         <span>Dashboard</span>
                     </a>
-                    <a href="#">
+                    <a href="/products">
                         <div className="icon">🛍️</div>
                         <span>Products</span>
                     </a>
                     <a href="#">
                         <div className="icon">📦</div>
-                        <span>Orders</span>
+                        <span>Add Products</span>
                     </a>
                     <a href="#">
                         <div className="icon">👥</div>
