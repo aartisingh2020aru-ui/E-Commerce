@@ -138,6 +138,246 @@ function Dashboard() {
                         </div>
                     </div>
                 </div>
+
+                <section className="content">
+
+                    {/* TOP NAV */}
+                    <div className="template-topbar">
+                        <span className="hamburger">☰</span>
+
+                        <div className="top-icons">
+                            <span>🔔</span>
+                            <span>✉️</span>
+                            <span>👤</span>
+                            <span>▦</span>
+                        </div>
+                    </div>
+
+
+                    {/* ================= TOP INVOICE CARDS ================= */}
+
+                    <div className="invoice-cards">
+
+                        <div className="invoice-card invoice-purple">
+                            <span>Total Orders</span>
+                            <strong>995400+</strong>
+                        </div>
+
+                        <div className="invoice-card invoice-pink">
+                            <span>Total Purchase</span>
+                            <strong>3567+</strong>
+                        </div>
+
+                        <div className="invoice-card invoice-orange">
+                            <span>Total Visits</span>
+                            <strong>28834+</strong>
+                        </div>
+
+                        <div className="invoice-card invoice-blue">
+                            <span>Total Customer</span>
+                            <strong>9878708+</strong>
+                        </div>
+
+                    </div>
+
+
+                    {/* ================= THREE MAIN BOXES ================= */}
+
+                    <div className="template-grid">
+
+
+                        {/* DAILY SALES */}
+
+                        <div className="template-box daily-sales">
+
+                            <h3>Daily Sales</h3>
+
+                            <div className="sales-values">
+
+                                <div>
+                                    <strong>56789</strong>
+                                    <span>Online sales</span>
+                                </div>
+
+                                <div>
+                                    <strong>12345</strong>
+                                    <span>Sales in store</span>
+                                </div>
+
+                            </div>
+
+
+                            <div className="sales-legend">
+
+                                <span>
+                                    <i className="online"></i>
+                                    online
+                                </span>
+
+                                <span>
+                                    <i className="store"></i>
+                                    store
+                                </span>
+
+                            </div>
+
+
+                            {/* GRAPH */}
+
+                            <div className="sales-graph">
+
+                                <svg viewBox="0 0 500 250"
+                                    preserveAspectRatio="none">
+
+                                    <path
+                                        className="graph-purple"
+                                        d="
+                        M0 250
+                        C20 180, 35 60, 65 45
+                        C90 30, 105 180, 135 190
+                        C160 195, 180 105, 205 110
+                        C230 115, 245 180, 270 170
+                        C300 155, 315 105, 340 125
+                        C365 145, 380 220, 405 205
+                        C430 190, 450 80, 475 90
+                        C490 95, 500 130, 500 250
+                        Z"
+                                    />
+
+                                    <path
+                                        className="graph-pink"
+                                        d="
+                        M0 250
+                        C30 160, 45 70, 70 55
+                        C95 40, 110 185, 140 180
+                        C165 175, 180 120, 205 140
+                        C230 160, 245 130, 270 125
+                        C300 120, 320 185, 345 180
+                        C375 175, 390 120, 410 130
+                        C440 140, 465 195, 500 165
+                        L500 250
+                        Z"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+                        </div>
+
+
+                        {/* ACTIVITY */}
+
+                        <div className="template-box activity-box">
+
+                            <h3>Activity</h3>
+
+                            <div className="activity-list">
+
+                                <div className="activity-item">
+                                    <div className="activity-avatar">👨🏻</div>
+
+                                    <div>
+                                        <p><b>Dobrick</b> published an article</p>
+                                        <small>2 hours ago</small>
+                                    </div>
+                                </div>
+
+
+                                <div className="activity-item">
+                                    <div className="activity-avatar">👩🏻</div>
+
+                                    <div>
+                                        <p><b>Stella</b> created an event</p>
+                                        <small>3 hours ago</small>
+                                    </div>
+                                </div>
+
+
+                                <div className="activity-item">
+                                    <div className="activity-avatar">👨🏻</div>
+
+                                    <div>
+                                        <p><b>Peter</b> submitted the reports</p>
+                                        <small>1 hours ago</small>
+                                    </div>
+                                </div>
+
+
+                                <div className="activity-item">
+                                    <div className="activity-avatar">👩🏻</div>
+
+                                    <div>
+                                        <p><b>Natella</b> updated the docs</p>
+                                        <small>1 hours ago</small>
+                                    </div>
+                                </div>
+
+
+                                <div className="activity-item">
+                                    <div className="activity-avatar">👨🏻</div>
+
+                                    <div>
+                                        <p><b>Tom</b> uploaded the demo</p>
+                                        <small>3 hours ago</small>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        {/* TRAFFIC */}
+
+                        <div className="template-box traffic-box">
+
+                            <h3>Traffic</h3>
+
+                            <div className="traffic-circle">
+
+                                <div>
+                                    <span>1.2 M</span>
+                                </div>
+
+                            </div>
+
+                            <h4>Traffic for the day</h4>
+
+                            <p>
+                                Traffic through the sources google and facebook for the day
+                            </p>
+
+
+                            <div className="traffic-values">
+
+                                <div>
+                                    <strong>40%</strong>
+
+                                    <span>
+                                        <i className="facebook"></i>
+                                        Facebook
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <strong>60%</strong>
+
+                                    <span>
+                                        <i className="google"></i>
+                                        Google
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
                 {/* RECENT ORDERS */}
                 <div className="table-box">
                     <div className="table-header">
@@ -229,236 +469,88 @@ function Dashboard() {
                         </tbody>
                     </table>
                 </div>
-            </section>
-
-            <section className="content">
-
-                {/* TOP NAV */}
-                <div className="template-topbar">
-                    <span className="hamburger">☰</span>
-
-                    <div className="top-icons">
-                        <span>🔔</span>
-                        <span>✉️</span>
-                        <span>👤</span>
-                        <span>▦</span>
-                    </div>
-                </div>
 
 
-                {/* ================= TOP INVOICE CARDS ================= */}
+                {/* ================= ADDITIONAL STATISTICS ================= */}
 
-                <div className="invoice-cards">
+                <div className="extra-dashboard">
 
-                    <div className="invoice-card invoice-purple">
-                        <span>Total invoices</span>
-                        <strong>28893</strong>
-                    </div>
+                    {/* TOP STATISTICS */}
 
-                    <div className="invoice-card invoice-pink">
-                        <span>Total invoices</span>
-                        <strong>28893</strong>
-                    </div>
+                    <div className="stats-row">
 
-                    <div className="invoice-card invoice-orange">
-                        <span>Total invoices</span>
-                        <strong>28893</strong>
-                    </div>
-
-                    <div className="invoice-card invoice-blue">
-                        <span>Total invoices</span>
-                        <strong>28893</strong>
-                    </div>
-
-                </div>
-
-
-                {/* ================= THREE MAIN BOXES ================= */}
-
-                <div className="template-grid">
-
-
-                    {/* DAILY SALES */}
-
-                    <div className="template-box daily-sales">
-
-                        <h3>Daily Sales</h3>
-
-                        <div className="sales-values">
-
+                        <div className="stat-card">
+                            <div className="stat-icon green-icon">↗</div>
                             <div>
-                                <strong>56789</strong>
-                                <span>Online sales</span>
+                                <strong>8954</strong>
+                                <span>Lifetime Sales</span>
                             </div>
-
-                            <div>
-                                <strong>12345</strong>
-                                <span>Sales in store</span>
-                            </div>
-
                         </div>
 
-
-                        <div className="sales-legend">
-
-                            <span>
-                                <i className="online"></i>
-                                online
-                            </span>
-
-                            <span>
-                                <i className="store"></i>
-                                store
-                            </span>
-
+                        <div className="stat-card">
+                            <div className="stat-icon red-icon">▣</div>
+                            <div>
+                                <strong>7841</strong>
+                                <span>Sales Amount</span>
+                            </div>
                         </div>
 
+                        <div className="stat-card">
+                            <div className="stat-icon yellow-icon">$</div>
+                            <div>
+                                <strong>6521</strong>
+                                <span>Total Users</span>
+                            </div>
+                        </div>
 
-                        {/* GRAPH */}
-
-                        <div className="sales-graph">
-
-                            <svg viewBox="0 0 500 250"
-                                preserveAspectRatio="none">
-
-                                <path
-                                    className="graph-purple"
-                                    d="
-                        M0 250
-                        C20 180, 35 60, 65 45
-                        C90 30, 105 180, 135 190
-                        C160 195, 180 105, 205 110
-                        C230 115, 245 180, 270 170
-                        C300 155, 315 105, 340 125
-                        C365 145, 380 220, 405 205
-                        C430 190, 450 80, 475 90
-                        C490 95, 500 130, 500 250
-                        Z"
-                                />
-
-                                <path
-                                    className="graph-pink"
-                                    d="
-                        M0 250
-                        C30 160, 45 70, 70 55
-                        C95 40, 110 185, 140 180
-                        C165 175, 180 120, 205 140
-                        C230 160, 245 130, 270 125
-                        C300 120, 320 185, 345 180
-                        C375 175, 390 120, 410 130
-                        C440 140, 465 195, 500 165
-                        L500 250
-                        Z"
-                                />
-
-                            </svg>
-
+                        <div className="stat-card">
+                            <div className="stat-icon cyan-icon">✓</div>
+                            <div>
+                                <strong>325</strong>
+                                <span>Total Visits</span>
+                            </div>
                         </div>
 
                     </div>
 
 
-                    {/* ACTIVITY */}
+                    {/* MIDDLE CARDS */}
 
-                    <div className="template-box activity-box">
+                    <div className="small-info-grid">
 
-                        <h3>Activity</h3>
+                        <div className="small-info-card">
 
-                        <div className="activity-list">
+                            <div>
+                                <h4>Statistics</h4>
 
-                            <div className="activity-item">
-                                <div className="activity-avatar">👨🏻</div>
+                                <strong>$10,200</strong>
 
-                                <div>
-                                    <p><b>Dobrick</b> published an article</p>
-                                    <small>2 hours ago</small>
-                                </div>
+                                <span>Updated $10m</span>
+
+                                <p>Raised from 85 orders.</p>
                             </div>
 
-
-                            <div className="activity-item">
-                                <div className="activity-avatar">👩🏻</div>
-
-                                <div>
-                                    <p><b>Stella</b> created an event</p>
-                                    <small>3 hours ago</small>
-                                </div>
-                            </div>
-
-
-                            <div className="activity-item">
-                                <div className="activity-avatar">👨🏻</div>
-
-                                <div>
-                                    <p><b>Peter</b> submitted the reports</p>
-                                    <small>1 hours ago</small>
-                                </div>
-                            </div>
-
-
-                            <div className="activity-item">
-                                <div className="activity-avatar">👩🏻</div>
-
-                                <div>
-                                    <p><b>Natella</b> updated the docs</p>
-                                    <small>1 hours ago</small>
-                                </div>
-                            </div>
-
-
-                            <div className="activity-item">
-                                <div className="activity-avatar">👨🏻</div>
-
-                                <div>
-                                    <p><b>Tom</b> uploaded the demo</p>
-                                    <small>3 hours ago</small>
-                                </div>
+                            <div className="square-icon green-square">
+                                ≋
                             </div>
 
                         </div>
 
-                    </div>
 
-
-                    {/* TRAFFIC */}
-
-                    <div className="template-box traffic-box">
-
-                        <h3>Traffic</h3>
-
-                        <div className="traffic-circle">
+                        <div className="small-info-card">
 
                             <div>
-                                <span>1.2 M</span>
+                                <h4>Daily Order</h4>
+
+                                <strong>$2256</strong>
+
+                                <span>Updated $45m</span>
+
+                                <p>Hey, you have reached 1 higher.</p>
                             </div>
 
-                        </div>
-
-                        <h4>Traffic for the day</h4>
-
-                        <p>
-                            Traffic through the sources google and facebook for the day
-                        </p>
-
-
-                        <div className="traffic-values">
-
-                            <div>
-                                <strong>40%</strong>
-
-                                <span>
-                                    <i className="facebook"></i>
-                                    Facebook
-                                </span>
-                            </div>
-
-                            <div>
-                                <strong>60%</strong>
-
-                                <span>
-                                    <i className="google"></i>
-                                    Google
-                                </span>
+                            <div className="square-icon yellow-square">
+                                ▣
                             </div>
 
                         </div>
@@ -468,6 +560,8 @@ function Dashboard() {
                 </div>
 
             </section>
+
+
 
         </Layout>
 

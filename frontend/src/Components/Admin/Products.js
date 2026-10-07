@@ -334,7 +334,7 @@ function Products() {
                                     </button>
                                 </div>
                             </article>
-                            
+
                             {/* Product 2 */}
                             <article className="premium-card">
                                 <div className="visual visual-2">
@@ -661,6 +661,236 @@ function Products() {
                                 </div>
 
                             </article>
+
+                            {/* Product 9 */}
+                            <article className="premium-card">
+                                <div className="visual visual-9">
+                                    <span className="discount">-15%</span>
+                                    <button className="heart">♡</button>
+
+                                    <div className="product-art">🎮</div>
+
+                                    <div className="floating-label">
+                                        <span className="dot orange" />
+                                        Gaming Pick
+                                    </div>
+                                </div>
+
+                                <div className="premium-content">
+
+                                    <div className="product-meta">
+                                        <span>PLAYSTATION</span>
+                                        <small>PS-5021</small>
+                                    </div>
+
+                                    <h2>PlayStation 5 Console</h2>
+
+                                    <div className="rating">
+                                        <span>★★★★★</span>
+                                        <b>4.8</b>
+                                        <small>(421 reviews)</small>
+                                    </div>
+
+                                    <div className="price-row">
+                                        <div>
+                                            <strong>$499</strong>
+                                            <del>$589</del>
+                                        </div>
+
+                                        <span className="sold">2.1k sold</span>
+                                    </div>
+
+                                    <div className="stock-row">
+                                        <span>Stock</span>
+                                        <strong>37 / 60</strong>
+                                    </div>
+
+                                    <div className="stock-bar">
+                                        <i style={{ width: '62%' }} />
+                                    </div>
+
+                                    <button className="manage-btn">
+                                        Manage Product
+                                        <span>→</span>
+                                    </button>
+
+                                </div>
+                            </article>
+
+
+                            {/* Product 10 */}
+                            <article className="premium-card">
+                                <div className="visual visual-10">
+                                    <span className="discount">-25%</span>
+
+                                    <button className="heart">♡</button>
+
+                                    <div className="product-art">👗</div>
+
+                                    <div className="floating-label">
+                                        <span className="dot pink" />
+                                        Trending
+                                    </div>
+                                </div>
+
+                                <div className="premium-content">
+
+                                    <div className="product-meta">
+                                        <span>ZARA</span>
+                                        <small>DR-5824</small>
+                                    </div>
+
+                                    <h2>Elegant One Piece Dress</h2>
+
+                                    <div className="rating">
+                                        <span>★★★★★</span>
+                                        <b>4.8</b>
+                                        <small>(236 reviews)</small>
+                                    </div>
+
+                                    <div className="price-row">
+                                        <div>
+                                            <strong>$149</strong>
+                                            <del>$199</del>
+                                        </div>
+
+                                        <span className="sold">1.5k sold</span>
+                                    </div>
+
+                                    <div className="stock-row">
+                                        <span>Stock</span>
+                                        <strong>42 / 75</strong>
+                                    </div>
+
+                                    <div className="stock-bar">
+                                        <i style={{ width: '56%' }} />
+                                    </div>
+
+                                    <button className="manage-btn">
+                                        Manage Product
+                                        <span>→</span>
+                                    </button>
+
+                                </div>
+                            </article>
+
+
+                            {/* Product 11 */}
+                            <article className="premium-card">
+
+                                <div className="visual visual-11">
+                                    <span className="discount">-22%</span>
+
+                                    <button className="heart">♡</button>
+
+                                    <div className="product-art">⌨️</div>
+
+                                    <div className="floating-label">
+                                        <span className="dot purple" />
+                                        Best Choice
+                                    </div>
+                                </div>
+
+                                <div className="premium-content">
+
+                                    <div className="product-meta">
+                                        <span>LOGITECH</span>
+                                        <small>KB-4420</small>
+                                    </div>
+
+                                    <h2>Mechanical Gaming Keyboard</h2>
+
+                                    <div className="rating">
+                                        <span>★★★★★</span>
+                                        <b>4.6</b>
+                                        <small>(186 reviews)</small>
+                                    </div>
+
+                                    <div className="price-row">
+                                        <div>
+                                            <strong>$129</strong>
+                                            <del>$165</del>
+                                        </div>
+
+                                        <span className="sold">956 sold</span>
+                                    </div>
+
+                                    <div className="stock-row">
+                                        <span>Stock</span>
+                                        <strong>18 / 45</strong>
+                                    </div>
+
+                                    <div className="stock-bar danger">
+                                        <i style={{ width: '40%' }} />
+                                    </div>
+
+                                    <button className="manage-btn">
+                                        Manage Product
+                                        <span>→</span>
+                                    </button>
+
+                                </div>
+                            </article>
+
+
+                            {/* Product 12 */}
+                            <article className="premium-card">
+
+                                <div className="visual visual-12">
+
+                                    <span className="new">NEW</span>
+
+                                    <button className="heart">♡</button>
+
+                                    <div className="product-art">👠</div>
+
+                                    <div className="floating-label">
+                                        <span className="dot purple" />
+                                        New Arrival
+                                    </div>
+
+                                </div>
+
+                                <div className="premium-content">
+
+                                    <div className="product-meta">
+                                        <span>GUCCI</span>
+                                        <small>HL-7342</small>
+                                    </div>
+
+                                    <h2>Classic Luxury Heels</h2>
+
+                                    <div className="rating">
+                                        <span>★★★★★</span>
+                                        <b>4.9</b>
+                                        <small>(184 reviews)</small>
+                                    </div>
+
+                                    <div className="price-row">
+                                        <div>
+                                            <strong>$389</strong>
+                                        </div>
+
+                                        <span className="sold">728 sold</span>
+                                    </div>
+
+                                    <div className="stock-row">
+                                        <span>Stock</span>
+                                        <strong>24 / 50</strong>
+                                    </div>
+
+                                    <div className="stock-bar">
+                                        <i className="purple-bar" style={{ width: '48%' }} />
+                                    </div>
+
+                                    <button className="manage-btn">
+                                        Manage Product
+                                        <span>→</span>
+                                    </button>
+
+                                </div>
+                            </article>
+
                         </div>
                     </section>
 
