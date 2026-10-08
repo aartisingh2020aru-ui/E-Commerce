@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Sidebar() {
     return (
         <>
@@ -7,47 +9,24 @@ function Sidebar() {
                 </div>
                 <div className="menu-title">Main Menu</div>
                 <nav className="menu">
-                    <a href="/dashboard" className="active">
+                    <Link to="/dashboard" className="active">
                         <div className="icon">📊</div>
                         <span>Dashboard</span>
-                    </a>
-                    <a href="/products">
+                    </Link>
+                    <Link to="/products">
                         <div className="icon">🛍️</div>
                         <span>Products</span>
-                    </a>
-                    <a href="/addproduct">
+                    </Link>
+                    <Link to="/addproduct">
                         <div className="icon">📦</div>
                         <span>Add Products</span>
-                    </a>
-                    <a href="#">
-                        <div className="icon">👥</div>
-                        <span>Customers</span>
-                    </a>
-                    <a href="#">
-                        <div className="icon">🏷️</div>
-                        <span>Categories</span>
-                    </a>
-                    <div className="menu-title">Management</div>
-                    <a href="#">
-                        <div className="icon">💰</div>
-                        <span>Payments</span>
-                    </a>
-                    <a href="#">
-                        <div className="icon">📈</div>
-                        <span>Analytics</span>
-                    </a>
-                    <a href="#">
-                        <div className="icon">⚙️</div>
-                        <span>Settings</span>
-                    </a>
-                    <a href="#">
-                        <div className="icon">🚪</div>
-                        <span>Logout</span>
-                    </a>
+                    </Link>
+                   
+                   
                 </nav>
             </aside>
 
         </>
-    );
+    );   
 }
 export default Sidebar;
