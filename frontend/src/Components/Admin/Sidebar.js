@@ -15,7 +15,7 @@ function Sidebar() {
                         <div className="icon">🛍️</div>
                         <span>Products</span>
                     </a>
-                    <a href="#">
+                    <a href="/addproduct">
                         <div className="icon">📦</div>
                         <span>Add Products</span>
                     </a>

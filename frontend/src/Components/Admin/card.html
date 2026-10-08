@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+        }
+
+
+        /* ================================
+   PRODUCT CONTAINER
+================================ */
+
+        .product-container {
+            width: 100%;
+            max-width: 1400px;
+
+            margin: 30px auto;
+            padding: 0 20px;
+
+            display: grid;
+
+            /* ⭐ 4 CARDS IN ONE ROW */
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 16px;
+        }
+
+
+        /* ================================
+   PRODUCT CARD
+================================ */
+
+        .product-card {
+            height: 630px;
+            background: #ffffff;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            padding: 8px;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* ================================
+   PRODUCT IMAGE
+================================ */
+
+        .product-image {
+            width: 100%;
+            height: 480px;
+
+            background: #f1f1f4;
+
+            border-radius: 11px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        /* ================================
+   PRODUCT INFO
+================================ */
+
+        .product-info {
+            padding: 8px 4px 4px;
+        }
+
+
+        /* ================================
+   PRICE
+================================ */
+
+        .price-row {
+            display: flex;
+            align-items: center;
+
+            gap: 7px;
+        }
+
+        .price {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .old-price {
+            font-size: 12px;
+
+            color: #999;
+
+            text-decoration: line-through;
+        }
+
+        .rating {
+            margin-left: auto;
+
+            background: #fff5e5;
+
+            padding: 4px 7px;
+
+            border-radius: 12px;
+
+            font-size: 10px;
+        }
+
+
+        /* ================================
+   TITLE
+================================ */
+
+        .product-card h3 {
+            font-size: 14px;
+
+            margin-top: 9px;
+
+            color: #222;
+        }
+
+
+        /* ================================
+   DESCRIPTION
+================================ */
+
+        .product-card p {
+            font-size: 11px;
+
+            line-height: 1.4;
+
+            color: #777;
+
+            margin-top: 6px;
+
+            height: 32px;
+
+            overflow: hidden;
+        }
+
+
+        /* ================================
+   ADD TO CART
+================================ */
+
+        .cart-btn {
+            width: 100%;
+
+            height: 32px;
+
+            margin-top: 10px;
+
+            border: none;
+
+            border-radius: 18px;
+
+            background: linear-gradient(90deg,
+                    #a66af0,
+                    #8852e8);
+
+            color: white;
+
+            font-size: 11px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .cart-btn:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="product-container">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="../Admin/Images/image1.jpg" alt="Black T-Shirt">
+            </div>
+
+            <div class="product-info">
+                <div class="price-row">
+                    <span class="price">$80</span>
+                    <span class="old-price">$100</span>
+                    <span class="rating">⭐ 5.0</span>
+                </div>
+
+                <h3>Men Black Slim Fit T-shirt</h3>
+
+                <p>
+                    Classic men's slim fit black t-shirt designed for
+                    everyday comfort and style.
+                </p>
+
+                <button class="cart-btn">🛒 Add to cart</button>
+            </div>
+        </div>
+
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="../Admin/Images/image5.jpg" alt="Leather Bag">
+            </div>
+
+            <div class="product-info">
+                <div class="price-row">
+                    <span class="price">$136</span>
+                    <span class="old-price">$150</span>
+                    <span class="rating">⭐ 4.1</span>
+                </div>
+
+                <h3>Olive Green Leather Bag</h3>
+
+                <p>
+                    Elegant olive green leather bag crafted for
+                    everyday style and sophistication.
+                </p>
+
+                <button class="cart-btn">🛒 Add to cart</button>
+            </div>
+        </div>
+
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="../Admin/Images/image3.jpg" alt="Golden Dress">
+            </div>
+
+            <div class="product-info">
+                <div class="price-row">
+                    <span class="price">$219</span>
+                    <span class="old-price">$250</span>
+                    <span class="rating">⭐ 5.0</span>
+                </div>
+
+                <h3>Women Golden Dress</h3>
+
+                <p>
+                    Stunning golden dress for women, perfect for
+                    evening events and special occasions.
+                </p>
+
+                <button class="cart-btn">🛒 Add to cart</button>
+            </div>
+        </div>
+
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="../Admin/Images/image4.jpg" alt="Gray Cap">
+            </div>
+
+            <div class="product-info">
+                <div class="price-row">
+                    <span class="price">$76</span>
+                    <span class="old-price">$100</span>
+                    <span class="rating">⭐ 5.0</span>
+                </div>
+
+                <h3>Gray Cap for Men</h3>
+
+                <p>
+                    Sleek men's gray cap crafted for versatility,
+                    durability and street style.
+                </p>
+
+                <button class="cart-btn">🛒 Add to cart</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
