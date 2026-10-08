@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 
 import image1 from "./Images/image1.jpg";
+import image2 from "./Images/image2.jpg";
 import image3 from "./Images/image3.jpg";
 import image4 from "./Images/image4.jpg";
 import image5 from "./Images/image5.jpg";
@@ -14,7 +15,6 @@ import image9 from "./Images/image9.jpg";
 import image10 from "./Images/image10.jpg";
 import image11 from "./Images/image11.jpg";
 import image12 from "./Images/image12.jpg";
-import image13 from "./Images/image13.jpg";
 
 
 
@@ -171,6 +171,27 @@ function AddProduct() {
                             <button className="cart-btn">🛒 Add to cart</button>
                         </div>
                     </div>
+
+                    {/* Product 2*/}
+                    <div className="product-card">
+                        <div className="product-image">
+                            <img src={image2} alt="watch" />
+                        </div>
+                        <div className="product-info">
+                            <div className="price-row">
+                                <span className="price">$76</span>
+                                <span className="old-price">$100</span>
+                                <span className="rating">⭐ 5.0</span>
+                            </div>
+                            <h3>Couple collection</h3>
+                            <p>
+                                Women's Fastival collection watch , perfect for
+                                evening events and special occasions.
+                            </p>
+                            <button className="cart-btn">🛒 Add to cart</button>
+                        </div>
+                    </div>
+
 
                     {/* Product 3 */}
                     <div className="product-card">
@@ -372,26 +393,7 @@ function AddProduct() {
                         </div>
                     </div>
 
-                    {/* Product 13*/}
-                    <div className="product-card">
-                        <div className="product-image">
-                            <img src={image13} alt="watch" />
-                        </div>
-                        <div className="product-info">
-                            <div className="price-row">
-                                <span className="price">$76</span>
-                                <span className="old-price">$100</span>
-                                <span className="rating">⭐ 5.0</span>
-                            </div>
-                            <h3>Couple collection</h3>
-                            <p>
-                                Women's Fastival collection watch , perfect for
-                                evening events and special occasions.
-                            </p>
-                            <button className="cart-btn">🛒 Add to cart</button>
-                        </div>
-                    </div>
-
+                  
                 </div>
 
 
