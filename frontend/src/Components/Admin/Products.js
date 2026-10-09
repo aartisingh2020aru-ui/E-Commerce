@@ -95,6 +95,7 @@ function Products() {
                                 </tr>
                             </thead>
                             <tbody>
+                                {/* Product 1 */}
                                 <tr>
                                     <td>
                                         <input type="checkbox" />
@@ -126,6 +127,8 @@ function Products() {
                                         <button className="more-btn">•••</button>
                                     </td>
                                 </tr>
+
+                                {/* Product 2 */}
                                 <tr>
                                     <td>
                                         <input type="checkbox" />
@@ -157,6 +160,8 @@ function Products() {
                                         <button className="more-btn">•••</button>
                                     </td>
                                 </tr>
+
+                                {/* Product 3 */}
                                 <tr>
                                     <td>
                                         <input type="checkbox" />
@@ -188,6 +193,8 @@ function Products() {
                                         <button className="more-btn">•••</button>
                                     </td>
                                 </tr>
+
+                                {/* Product 4 */}
                                 <tr>
                                     <td>
                                         <input type="checkbox" />
@@ -219,6 +226,8 @@ function Products() {
                                         <button className="more-btn">•••</button>
                                     </td>
                                 </tr>
+
+                                {/* Product 5 */}
                                 <tr>
                                     <td>
                                         <input type="checkbox" />
@@ -250,8 +259,219 @@ function Products() {
                                         <button className="more-btn">•••</button>
                                     </td>
                                 </tr>
+
+                                {/* Product 6 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image blue">👖</div>
+                                            <div>
+                                                <strong>Slim Fit Denim Jeans</strong>
+                                                <small>Men's Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">CL-061</td>
+                                    <td>Clothing</td>
+                                    <td className="price">$59.99</td>
+                                    <td><span className="stock good">65 in stock</span></td>
+                                    <td><span className="status active-status"><i /> Active</span></td>
+                                    <td className="date">Sep 28, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
+
+                                {/* Product 7 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image orange">🎒</div>
+                                            <div>
+                                                <strong>Travel Backpack</strong>
+                                                <small>Travel Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">BG-025</td>
+                                    <td>Accessories</td>
+                                    <td className="price">$45.00</td>
+                                    <td><span className="stock good">42 in stock</span></td>
+                                    <td><span className="status active-status"><i /> Active</span></td>
+                                    <td className="date">Sep 27, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
+
+                                {/* Product 8 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image brown">👓</div>
+                                            <div>
+                                                <strong>Classic Sunglasses</strong>
+                                                <small>Summer Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">AC-032</td>
+                                    <td>Accessories</td>
+                                    <td className="price">$24.99</td>
+                                    <td><span className="stock low">9 in stock</span></td>
+                                    <td><span className="status active-status"><i /> Active</span></td>
+                                    <td className="date">Sep 26, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
+
+                                {/* Product 9 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image green">📱</div>
+                                            <div>
+                                                <strong>Smartphone Pro</strong>
+                                                <small>Mobile Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">EL-068</td>
+                                    <td>Electronics</td>
+                                    <td className="price">$699.00</td>
+                                    <td><span className="stock good">31 in stock</span></td>
+                                    <td><span className="status active-status"><i /> Active</span></td>
+                                    <td className="date">Sep 25, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
+
+                                {/* Product 10 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image black">⌨️</div>
+                                            <div>
+                                                <strong>Mechanical Keyboard</strong>
+                                                <small>Gaming Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">EL-072</td>
+                                    <td>Electronics</td>
+                                    <td className="price">$79.99</td>
+                                    <td><span className="stock good">54 in stock</span></td>
+                                    <td><span className="status active-status"><i /> Active</span></td>
+                                    <td className="date">Sep 24, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
+
+                                {/* Product 11 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image orange">☕</div>
+                                            <div>
+                                                <strong>Ceramic Coffee Mug</strong>
+                                                <small>Kitchen Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">HM-014</td>
+                                    <td>Home & Living</td>
+                                    <td className="price">$14.99</td>
+                                    <td><span className="stock good">110 in stock</span></td>
+                                    <td><span className="status active-status"><i /> Active</span></td>
+                                    <td className="date">Sep 23, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
+
+                                {/* Product 12 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image blue">🧥</div>
+                                            <div>
+                                                <strong>Winter Puffer Jacket</strong>
+                                                <small>Winter Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">CL-078</td>
+                                    <td>Clothing</td>
+                                    <td className="price">$119.00</td>
+                                    <td><span className="stock low">6 in stock</span></td>
+                                    <td><span className="status draft-status"><i /> Draft</span></td>
+                                    <td className="date">Sep 22, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
+
+                                {/* Product 13 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image green">🧴</div>
+                                            <div>
+                                                <strong>Daily Face Moisturizer</strong>
+                                                <small>Skincare Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">BT-019</td>
+                                    <td>Beauty</td>
+                                    <td className="price">$18.50</td>
+                                    <td><span className="stock good">87 in stock</span></td>
+                                    <td><span className="status active-status"><i /> Active</span></td>
+                                    <td className="date">Sep 21, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
+
+                                {/* Product 14 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image brown">🧸</div>
+                                            <div>
+                                                <strong>Soft Teddy Bear</strong>
+                                                <small>Toys Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">TY-026</td>
+                                    <td>Toys</td>
+                                    <td className="price">$29.00</td>
+                                    <td><span className="stock out">0 in stock</span></td>
+                                    <td><span className="status out-status"><i /> Out of Stock</span></td>
+                                    <td className="date">Sep 20, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
+
+                                {/* Product 15 */}
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>
+                                        <div className="product">
+                                            <div className="product-image black">🔊</div>
+                                            <div>
+                                                <strong>Portable Bluetooth Speaker</strong>
+                                                <small>Audio Collection</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="sku">EL-085</td>
+                                    <td>Electronics</td>
+                                    <td className="price">$49.99</td>
+                                    <td><span className="stock good">38 in stock</span></td>
+                                    <td><span className="status active-status"><i /> Active</span></td>
+                                    <td className="date">Sep 19, 2026</td>
+                                    <td><button className="more-btn">•••</button></td>
+                                </tr>
                             </tbody>
                         </table>
+
                     </div>
                     {/* Footer */}
                     <div className="table-footer">
@@ -269,13 +489,8 @@ function Products() {
                         </div>
                     </div>
 
-
-
-
-
-
                 </section>
-                
+
             </Layout>
 
         </>

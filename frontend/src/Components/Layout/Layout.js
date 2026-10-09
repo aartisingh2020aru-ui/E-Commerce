@@ -7,7 +7,7 @@ function Layout({children }){
     return(
         <div className="d-flex flex-column min-vh-100">
 
-            <Header/>
+            <Header />
 
             <main className="container py-4 flex-grow-1">
                 <ToastContainer />

@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add Product</title>
+    <link rel="stylesheet" href="addproduct.css">
+
+    <style>
+        
+/* =================================
+   GLOBAL STYLES
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f7fb;
+    color: #25243a;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
+    min-height: 100vh;
+}
+
+/* =================================
+   SIDEBAR
+================================= */
+
+.sidebar {
+    background: #ffffff;
+    border-right: 1px solid #e9e8f0;
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #6c5ce7;
+    padding: 0 12px;
+    margin-bottom: 45px;
+}
+
+.logo span {
+    color: #25243a;
+}
+
+.menu-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #9a98ab;
+    letter-spacing: 1.5px;
+    padding: 0 12px;
+    margin-bottom: 15px;
+}
+
+.sidebar nav,
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 14px 13px;
+    text-decoration: none;
+    color: #77768a;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 9px;
+    transition: 0.2s ease;
+}
+
+.sidebar a:hover {
+    background: #f2efff;
+    color: #6c5ce7;
+}
+
+.sidebar a.active {
+    background: #eeeaff;
+    color: #6c5ce7;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding-top: 30px;
+}
+
+/* =================================
+   MAIN CONTENT
+================================= */
+
+.main-content {
+    min-width: 0;
+    padding: 32px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    color: #9997aa;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.topbar h1 {
+    font-size: 29px;
+    letter-spacing: -0.7px;
+    margin-bottom: 9px;
+}
+
+.subtitle {
+    color: #858397;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notification {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #e9e7f1;
+    border-radius: 10px;
+    color: #6c5ce7;
+    font-size: 21px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: #e7e1ff;
+    color: #6c5ce7;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-weight: 800;
+}
+
+.admin-profile strong,
+.admin-profile small {
+    display: block;
+}
+
+.admin-profile strong {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.admin-profile small {
+    color: #8c8a9e;
+    font-size: 11px;
+}
+
+/* =================================
+   FORM GRID
+================================= */
+
+.form-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* =================================
+   CARDS
+================================= */
+
+.card {
+    background: #ffffff;
+    border: 1px solid #eeedf4;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 4px 18px rgba(39, 34, 78, 0.025);
+}
+
+.card h2 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    font-weight: 750;
+}
+
+.card-description {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #9290a2;
+    margin-bottom: 25px;
+}
+
+/* =================================
+   INPUT FIELDS
+================================= */
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 21px;
+}
+
+.field:last-child {
+    margin-bottom: 0;
+}
+
+.field label {
+    color: #39374c;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.field input,
+.field textarea,
+.field select {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #e4e3ed;
+    border-radius: 8px;
+    padding: 12px 13px;
+    color: #353348;
+    background: #ffffff;
+    outline: none;
+    font-size: 12px;
+    transition: 0.2s ease;
+}
+
+.field input,
+.field select {
+    height: 44px;
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: #b1afbf;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+    border-color: #8171ef;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.10);
+}
+
+.helper {
+    color: #9997a9;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+/* =================================
+   IMAGE UPLOAD
+================================= */
+
+.upload-box {
+    min-height: 190px;
+    border: 2px dashed #dcd8f4;
+    border-radius: 12px;
+    background: #fbfaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.upload-box:hover {
+    background: #f5f2ff;
+    border-color: #8a7cf0;
+}
+
+.upload-icon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #eeeaff;
+    color: #6c5ce7;
+    font-size: 27px;
+}
+
+.upload-box strong {
+    font-size: 13px;
+}
+
+.upload-box span {
+    font-size: 12px;
+    color: #8c8a9e;
+}
+
+.upload-box span b {
+    color: #6c5ce7;
+}
+
+.upload-box small {
+    color: #a19fb0;
+    font-size: 10px;
+}
+
+/* =================================
+   FORM ACTIONS
+================================= */
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 25px;
+    padding: 20px 0 10px;
+    border-top: 1px solid #e9e7f0;
+}
+
+.action-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    min-height: 44px;
+    border-radius: 8px;
+    padding: 0 19px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.btn-secondary {
+    color: #6f6d80;
+    background: #ffffff;
+    border: 1px solid #e5e3ed;
+}
+
+.btn-outline {
+    background: #ffffff;
+    color: #6c5ce7;
+    border: 1px solid #cfc8fa;
+}
+
+.btn-primary {
+    background: #6c5ce7;
+    color: #ffffff;
+    border: 1px solid #6c5ce7;
+    box-shadow: 0 5px 12px rgba(108, 92, 231, 0.17);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary:hover {
+    background: #5847d4;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 1050px) {
+    .dashboard {
+        grid-template-columns: 205px minmax(0, 1fr);
+    }
+
+    .main-content {
+        padding: 24px;
+    }
+
+    .form-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .right-column {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+}
+
+@media (max-width: 700px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .logo {
+        margin-bottom: 18px;
+    }
+
+    .menu-title,
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar a {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-profile {
+        align-self: flex-end;
+    }
+
+    .topbar h1 {
+        font-size: 24px;
+    }
+
+    .card {
+        padding: 19px;
+    }
+
+    .right-column {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .action-right {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .two-columns {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">Shop<span>Admin</span></div>
+
+        <p class="menu-title">MAIN MENU</p>
+
+        <nav>
+            <a href="#">▦ Dashboard</a>
+            <a href="#" class="active">▣ Products</a>
+            <a href="#">▤ Orders</a>
+            <a href="#">♙ Customers</a>
+            <a href="#">▧ Categories</a>
+            <a href="#">▥ Analytics</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#">⚙ Settings</a>
+            <a href="#">↪ Logout</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">Dashboard / Products / Add Product</p>
+                <h1>Add New Product</h1>
+                <p class="subtitle">Create and manage your product listing.</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="notification">♧</div>
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Admin</strong>
+                    <small>Store Manager</small>
+                </div>
+            </div>
+        </header>
+
+        <form class="product-form">
+
+            <div class="form-layout">
+
+                <!-- Left Column -->
+                <section class="left-column">
+
+                    <div class="card">
+                        <h2>Product Information</h2>
+                        <p class="card-description">
+                            Enter the basic details of your product.
+                        </p>
+
+                        <div class="field">
+                            <label for="productName">Product Name *</label>
+                            <input type="text" id="productName"
+                                placeholder="e.g. Premium Cotton T-Shirt" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="description">Product Description *</label>
+                            <textarea id="description" rows="5"
+                                placeholder="Describe your product..." required></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="shortDescription">Short Description</label>
+                            <input type="text" id="shortDescription"
+                                placeholder="A short summary of your product">
+                        </div>
+                    </div>
+
+                    <!-- Image Upload -->
+                    <div class="card">
+                        <h2>Product Images</h2>
+                        <p class="card-description">
+                            Upload high-quality images of your product.
+                        </p>
+
+                        <label class="upload-box" for="productImages">
+                            <div class="upload-icon">↑</div>
+                            <strong>Drag and drop your images here</strong>
+                            <span>or <b>browse files</b> from your computer</span>
+                            <small>PNG, JPG or WEBP · Max 5 MB per image</small>
+                        </label>
+
+                        <input type="file" id="productImages"
+                            accept="image/png,image/jpeg,image/webp"
+                            multiple hidden>
+                    </div>
+
+                    <!-- Pricing -->
+                    <div class="card">
+                        <h2>Pricing</h2>
+                        <p class="card-description">
+                            Set the selling price and discount.
+                        </p>
+
+                        <div class="two-columns">
+                            <div class="field">
+                                <label for="regularPrice">Regular Price (₹) *</label>
+                                <input type="number" id="regularPrice"
+                                    min="0" step="0.01" placeholder="999.00" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="salePrice">Sale Price (₹)</label>
+                                <input type="number" id="salePrice"
+                                    min="0" step="0.01" placeholder="799.00">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="cost">Cost per Item (₹)</label>
+                            <input type="number" id="cost"
+                                min="0" step="0.01" placeholder="500.00">
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Right Column -->
+                <section class="right-column">
+
+                    <!-- Organization -->
+                    <div class="card">
+                        <h2>Organization</h2>
+
+                        <div class="field">
+                            <label for="category">Category *</label>
+                            <select id="category" required>
+                                <option value="">Select category</option>
+                                <option>Clothing</option>
+                                <option>Electronics</option>
+                                <option>Footwear</option>
+                                <option>Beauty & Personal Care</option>
+                                <option>Home & Living</option>
+                                <option>Accessories</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="brand">Brand</label>
+                            <input type="text" id="brand"
+                                placeholder="Enter brand name">
+                        </div>
+
+                        <div class="field">
+                            <label for="tags">Product Tags</label>
+                            <input type="text" id="tags"
+                                placeholder="casual, trending, summer">
+                            <small class="helper">
+                                Separate multiple tags with commas.
+                            </small>
+                        </div>
+                    </div>
+
+                    <!-- Inventory -->
+                    <div class="card">
+                        <h2>Inventory</h2>
+
+                        <div class="field">
+                            <label for="sku">SKU (Product Code)</label>
+                            <input type="text" id="sku"
+                                placeholder="e.g. TS-001">
+                        </div>
+
+                        <div class="field">
+                            <label for="quantity">Stock Quantity *</label>
+                            <input type="number" id="quantity"
+                                min="0" step="1" placeholder="100" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="stockStatus">Stock Status</label>
+                            <select id="stockStatus">
+                                <option>In Stock</option>
+                                <option>Out of Stock</option>
+                                <option>Pre-order</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Shipping -->
+                    <div class="card">
+                        <h2>Shipping</h2>
+
+                        <div class="field">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight"
+                                min="0" step="0.01" placeholder="0.50">
+                        </div>
+
+                        <div class="two-columns">
+                            <div class="field">
+                                <label for="length">Length (cm)</label>
+                                <input type="number" id="length"
+                                    min="0" placeholder="20">
+                            </div>
+
+                            <div class="field">
+                                <label for="width">Width (cm)</label>
+                                <input type="number" id="width"
+                                    min="0" placeholder="15">
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <!-- Footer Actions -->
+            <div class="form-actions">
+                <button type="reset" class="btn btn-secondary">
+                    Reset Form
+                </button>
+
+                <div class="action-right">
+                    <button type="button" class="btn btn-outline">
+                        Save as Draft
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        + Publish Product
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </main>
+</div>
+
+</body>
+</html>
