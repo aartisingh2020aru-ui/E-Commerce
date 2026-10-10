@@ -181,51 +181,7 @@ function Header() {
                   </div>
                 </div>
               </div>
-              <div className="header-right">
-                {/* Navbar Icons */}
-                <ul className="rbt-quick-access">
-                  <li className="rbt-access-box rbt-scroll-trigger fade_in animation-order-1 rbt-access-box-has-bg-hover d-none d-lg-flex">
-                    <a href="tel:+800300-353-569" className="rbt-access-box-wrapper">
-                      <div className="rbt-round-btn rbt-bg-static-gray">
-                        <i className="fa-regular fa-phone" />
-                      </div>
-                      <div className="content p-0">
-                        <p>Hotline</p>
-                        <span>+800 300-353-569</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li className="rbt-access-box rbt-scroll-trigger fade_in animation-order-3 rbt-access-box-has-bg-hover d-none d-lg-flex">
-                    <a href="#!" className="rbt-access-box-wrapper" data-bs-toggle="modal" data-bs-target="#signinModal">
-                      <div className="rbt-round-btn rbt-bg-static-gray">
-                        <i className="fa-regular fa-user" />
-                      </div>
-                      <div className="content">
-                        <p>Log in/Sign Up</p>
-                        <span>Access Account</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li className="rbt-access-box rbt-scroll-trigger fade_in animation-order-3 rbt-access-box-has-bg-hover d-flex d-lg-none">
-                    <a className="search-trigger-active rbt-round-btn rbt-bg-static-gray rbt-modern-close-btn" href="#">
-                      <i className="fa-regular fa-search search-icon" />
-                      <div className="modern-close-wrapper" />
-                    </a>
-                  </li>
-                  <li className="rbt-access-box rbt-scroll-trigger fade_in animation-order-3 rbt-access-box-has-bg-hover rbt-mini-cart">
-                    <a href="#" className="rbt-access-box-wrapper rbt-cart-sidenav-activation">
-                      <div className="rbt-round-btn rbt-bg-static-gray">
-                        <i className="fa-regular fa-bag-shopping" />
-                        <span className="access-box-count rbt-shiny">12</span>
-                      </div>
-                      <div className="content p-0">
-                        <p>Total Cart</p>
-                        <span>Total $2390</span>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              
             </div>
           </div>
         </div>
