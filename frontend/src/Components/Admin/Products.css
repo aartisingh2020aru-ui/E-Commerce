@@ -354,6 +354,8 @@ input[type="checkbox"] {
   background: #e5f7ee;
 }
 
+
+
 .product strong {
   display: block;
 
@@ -462,6 +464,196 @@ input[type="checkbox"] {
 
   letter-spacing: 1px;
 }
+
+/* ==================================================================================== */
+/* =========================================
+   ADDITIONAL 10 PRODUCTS
+   Products 6 to 15
+========================================= */
+
+/* Product rows */
+tbody tr {
+    min-height: 72px;
+    transition: background 0.2s ease;
+}
+
+tbody td {
+    vertical-align: middle;
+}
+
+/* Product name and collection */
+.product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 190px;
+}
+
+.product strong {
+    display: block;
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.product small {
+    display: block;
+    margin-top: 4px;
+    white-space: nowrap;
+    font-size: 10px;
+}
+
+/* Product image backgrounds */
+.product-image.blue {
+    background: #e7f0ff;
+}
+
+.product-image.orange {
+    background: #fff0df;
+}
+
+.product-image.brown {
+    background: #f3e9df;
+}
+
+.product-image.black {
+    background: #ececef;
+}
+
+.product-image.green {
+    background: #e5f7ee;
+}
+
+/* SKU alignment */
+.sku {
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+/* Product pricing */
+.price {
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Inventory colors */
+.stock {
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.stock.good {
+    color: #269c63;
+}
+
+.stock.low {
+    color: #df8c20;
+}
+
+.stock.out {
+    color: #df5353;
+}
+
+/* Status badges */
+.status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 10px;
+}
+
+/* Active */
+.active-status {
+    background: #eaf8f0;
+    color: #269c63;
+}
+
+.active-status i {
+    background: #269c63;
+}
+
+/* Out of stock */
+.out-status {
+    background: #ffeded;
+    color: #d95454;
+}
+
+.out-status i {
+    background: #d95454;
+}
+
+/* Draft */
+.draft-status {
+    background: #f0f0f3;
+    color: #777983;
+}
+
+.draft-status i {
+    background: #858791;
+}
+
+/* Product date */
+.date {
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+/* More options button */
+.more-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.more-btn:hover {
+    background: #eeecff;
+    color: #6d5dfc;
+}
+
+/* Row hover */
+tbody tr:hover {
+    background: #fcfcff;
+}
+
+/* Responsive table */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    min-width: 950px;
+    width: 100%;
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+    .product {
+        min-width: 190px;
+    }
+
+    .product-image {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+
+    td {
+        padding: 12px;
+    }
+}
+
+
+
+
+/* ==================================================================== */
+
 
 /* =========================
    Footer
