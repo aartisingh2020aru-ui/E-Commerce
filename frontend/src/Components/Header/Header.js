@@ -380,7 +380,6 @@ function Header() {
               </div>
               <div className="rbt-header-content d-none d-xl-block">
                 <div className="header-info">
-<<<<<<< HEAD
                   <div className="rbt-search-with-category uni-header-swc-one">
                     <form>
                       <div className="rbt-inner-search-field border-0">
@@ -577,27 +576,6 @@ function Header() {
                                     </div>
                                     <div className="content">
                                       <h2 className="rbt-title h4"><a href="home-electronics.html">Electronics One</a></h2>
-=======
-                  <nav className="rbt-mainmenu-nav">
-                    <ul className="mainmenu mainmenu has-nav-bg-shape-hover">
-                      <li className="with-rbt-megamenu has-menu-child-item position-static rbt-initial-odo-count">
-                        <a href="#!">Demos <i className="fa-regular fa-chevron-down" /></a>
-                        {/* Start Mega Menu  */}
-                        <div className="rbt-megamenu rbt-prsentation-megamenu rbt-width-fullscreen">
-                          <div className="rbt-megamenu-wrapper">
-                            <div className="container p_sm--0 p_md--0 p_lg--0">
-                              <div className="row row--12 home-plesentation-wrapper single-dropdown-menu-presentation mt_dec--24 mb_sm--0">
-                                {/* Start Single Demo  */}
-                                <div className="col-lg-1-5 col-md-12 col-sm-12 col-12 single-mega-item rbt-scroll-trigger fade_in animation-order-1">
-                                  <div className="demo-single rbt-scroll-trigger zoom_in animation-order-1">
-                                    <div className="inner">
-                                      <div className="thumbnail">
-                                        <a href="home-electronics.html"><img src="assets/images/splash/demo-pages/demo-1.webp" alt="Demo Images" /></a>
-                                      </div>
-                                      <div className="content">
-                                        <h2 className="rbt-title h4"><a href="home-electronics.html">Electronics One</a></h2>
-                                      </div>
->>>>>>> edf4b6488834e861c23abcffe762e5a455feef43
                                     </div>
                                   </div>
                                 </div>
