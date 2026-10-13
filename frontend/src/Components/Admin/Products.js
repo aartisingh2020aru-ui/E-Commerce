@@ -1,500 +1,535 @@
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 import Layout from "./Layout";
-import './Products.css';
+// import "./Products.css";
 
+const API_URL = process.env.REACT_APP_API || "http://localhost:8080";
+
+const PAGE_SIZE = 8;
 
 function Products() {
-    return (
-        <>
-            <Layout>
-                <section className="stats">
-                    <div className="stat-card">
-                        <div className="stat-icon purple">▣</div>
-                        <div>
-                            <span>Total Products</span>
-                            <strong>248</strong>
-                            <small className="positive">↑ 8.2% <em>vs last month</em></small>
-                        </div>
-                    </div>
-                    <div className="stat-card">
-                        <div className="stat-icon green">✓</div>
-                        <div>
-                            <span>Active Products</span>
-                            <strong>218</strong>
-                            <small className="positive">↑ 5.4% <em>vs last month</em></small>
-                        </div>
-                    </div>
-                    <div className="stat-card">
-                        <div className="stat-icon orange">!</div>
-                        <div>
-                            <span>Low Stock</span>
-                            <strong>18</strong>
-                            <small className="negative">↑ 3 <em>from last month</em></small>
-                        </div>
-                    </div>
-                    <div className="stat-card">
-                        <div className="stat-icon red">×</div>
-                        <div>
-                            <span>Out of Stock</span>
-                            <strong>12</strong>
-                            <small className="negative">↑ 2 <em>from last month</em></small>
-                        </div>
-                    </div>
-                </section>
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [deletingId, setDeletingId] = useState(null);
 
-                {/* Products Card */}
-                <section className="products-card">
-                    <div className="products-header">
-                        <div>
-                            <h2>All Products</h2>
-                            <span>248 products</span>
-                        </div>
-                        <div className="view-buttons">
-                            <button className="view-btn active">☷</button>
-                            <button className="view-btn">▦</button>
-                        </div>
-                    </div>
-                    {/* Filters */}
-                    <div className="filters">
-                        <div className="search-box">
-                            <span>⌕</span>
-                            <input type="text" placeholder="Search by product name or SKU..." />
-                        </div>
-                        <select>
-                            <option>All Categories</option>
-                            <option>Clothing</option>
-                            <option>Footwear</option>
-                            <option>Accessories</option>
-                            <option>Electronics</option>
-                        </select>
-                        <select>
-                            <option>All Status</option>
-                            <option>Active</option>
-                            <option>Draft</option>
-                            <option>Out of Stock</option>
-                        </select>
-                        <button className="filter-btn">
-                            ⚙ Filters
-                        </button>
-                    </div>
-                    {/* Table */}
-                    <div className="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th className="check">
-                                        <input type="checkbox" />
-                                    </th>
-                                    <th>PRODUCT</th>
-                                    <th>SKU</th>
-                                    <th>CATEGORY</th>
-                                    <th>PRICE</th>
-                                    <th>STOCK</th>
-                                    <th>STATUS</th>
-                                    <th>UPDATED</th>
-                                    <th />
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {/* Product 1 */}
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" />
-                                    </td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image blue">
-                                                👕
-                                            </div>
-                                            <div>
-                                                <strong>Classic Cotton T-Shirt</strong>
-                                                <small>Men's Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">TS-001</td>
-                                    <td>Clothing</td>
-                                    <td className="price">$29.99</td>
-                                    <td>
-                                        <span className="stock good">124 in stock</span>
-                                    </td>
-                                    <td>
-                                        <span className="status active-status">
-                                            <i /> Active
-                                        </span>
-                                    </td>
-                                    <td className="date">Oct 05, 2026</td>
-                                    <td>
-                                        <button className="more-btn">•••</button>
-                                    </td>
-                                </tr>
+  // Fetch products from the backend
+  const fetchProducts = useCallback(async () => {
+    setLoading(true);
 
-                                {/* Product 2 */}
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" />
-                                    </td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image orange">
-                                                👟
-                                            </div>
-                                            <div>
-                                                <strong>Urban Running Shoes</strong>
-                                                <small>Sports Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">SH-024</td>
-                                    <td>Footwear</td>
-                                    <td className="price">$89.00</td>
-                                    <td>
-                                        <span className="stock low">12 in stock</span>
-                                    </td>
-                                    <td>
-                                        <span className="status active-status">
-                                            <i /> Active
-                                        </span>
-                                    </td>
-                                    <td className="date">Oct 04, 2026</td>
-                                    <td>
-                                        <button className="more-btn">•••</button>
-                                    </td>
-                                </tr>
+    try {
+      const response = await axios.get(
+        `${API_URL}/api/admin/products`
+      );
 
-                                {/* Product 3 */}
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" />
-                                    </td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image brown">
-                                                👜
-                                            </div>
-                                            <div>
-                                                <strong>Premium Leather Bag</strong>
-                                                <small>Accessories</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">BG-018</td>
-                                    <td>Accessories</td>
-                                    <td className="price">$120.00</td>
-                                    <td>
-                                        <span className="stock out">0 in stock</span>
-                                    </td>
-                                    <td>
-                                        <span className="status out-status">
-                                            <i /> Out of Stock
-                                        </span>
-                                    </td>
-                                    <td className="date">Oct 03, 2026</td>
-                                    <td>
-                                        <button className="more-btn">•••</button>
-                                    </td>
-                                </tr>
+      if (response.data.success) {
+        setProducts(response.data.products || []);
+      } else {
+        toast.error(response.data.message || "Unable to fetch products");
+      }
+    } catch (error) {
+      console.error(
+        "Fetch products error:",
+        error.response?.data || error.message
+      );
 
-                                {/* Product 4 */}
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" />
-                                    </td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image black">
-                                                🎧
-                                            </div>
-                                            <div>
-                                                <strong>Wireless Headphones</strong>
-                                                <small>Audio</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">EL-042</td>
-                                    <td>Electronics</td>
-                                    <td className="price">$149.99</td>
-                                    <td>
-                                        <span className="stock good">76 in stock</span>
-                                    </td>
-                                    <td>
-                                        <span className="status active-status">
-                                            <i /> Active
-                                        </span>
-                                    </td>
-                                    <td className="date">Oct 02, 2026</td>
-                                    <td>
-                                        <button className="more-btn">•••</button>
-                                    </td>
-                                </tr>
+      toast.error(
+        error.response?.data?.message ||
+          "Failed to fetch products. Check your backend connection."
+      );
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-                                {/* Product 5 */}
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" />
-                                    </td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image green">
-                                                ⌚
-                                            </div>
-                                            <div>
-                                                <strong>Smart Watch Pro</strong>
-                                                <small>Wearables</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">EL-055</td>
-                                    <td>Electronics</td>
-                                    <td className="price">$199.00</td>
-                                    <td>
-                                        <span className="stock low">8 in stock</span>
-                                    </td>
-                                    <td>
-                                        <span className="status draft-status">
-                                            <i /> Draft
-                                        </span>
-                                    </td>
-                                    <td className="date">Sep 29, 2026</td>
-                                    <td>
-                                        <button className="more-btn">•••</button>
-                                    </td>
-                                </tr>
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
-                                {/* Product 6 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image blue">👖</div>
-                                            <div>
-                                                <strong>Slim Fit Denim Jeans</strong>
-                                                <small>Men's Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">CL-061</td>
-                                    <td>Clothing</td>
-                                    <td className="price">$59.99</td>
-                                    <td><span className="stock good">65 in stock</span></td>
-                                    <td><span className="status active-status"><i /> Active</span></td>
-                                    <td className="date">Sep 28, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
+  // Build the category dropdown from existing products
+  const categories = useMemo(() => {
+    return [
+      ...new Set(
+        products
+          .map((product) => product.category)
+          .filter(Boolean)
+      ),
+    ].sort((a, b) => a.localeCompare(b));
+  }, [products]);
 
-                                {/* Product 7 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image orange">🎒</div>
-                                            <div>
-                                                <strong>Travel Backpack</strong>
-                                                <small>Travel Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">BG-025</td>
-                                    <td>Accessories</td>
-                                    <td className="price">$45.00</td>
-                                    <td><span className="stock good">42 in stock</span></td>
-                                    <td><span className="status active-status"><i /> Active</span></td>
-                                    <td className="date">Sep 27, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
+  // Search and category filtering
+  const filteredProducts = useMemo(() => {
+    const searchText = search.trim().toLowerCase();
 
-                                {/* Product 8 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image brown">👓</div>
-                                            <div>
-                                                <strong>Classic Sunglasses</strong>
-                                                <small>Summer Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">AC-032</td>
-                                    <td>Accessories</td>
-                                    <td className="price">$24.99</td>
-                                    <td><span className="stock low">9 in stock</span></td>
-                                    <td><span className="status active-status"><i /> Active</span></td>
-                                    <td className="date">Sep 26, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
+    return products.filter((product) => {
+      const matchesSearch =
+        !searchText ||
+        [product.name, product.brand, product.category]
+          .some((value) =>
+            String(value || "").toLowerCase().includes(searchText)
+          );
 
-                                {/* Product 9 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image green">📱</div>
-                                            <div>
-                                                <strong>Smartphone Pro</strong>
-                                                <small>Mobile Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">EL-068</td>
-                                    <td>Electronics</td>
-                                    <td className="price">$699.00</td>
-                                    <td><span className="stock good">31 in stock</span></td>
-                                    <td><span className="status active-status"><i /> Active</span></td>
-                                    <td className="date">Sep 25, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
+      const matchesCategory =
+        categoryFilter === "all" ||
+        product.category === categoryFilter;
 
-                                {/* Product 10 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image black">⌨️</div>
-                                            <div>
-                                                <strong>Mechanical Keyboard</strong>
-                                                <small>Gaming Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">EL-072</td>
-                                    <td>Electronics</td>
-                                    <td className="price">$79.99</td>
-                                    <td><span className="stock good">54 in stock</span></td>
-                                    <td><span className="status active-status"><i /> Active</span></td>
-                                    <td className="date">Sep 24, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
+      return matchesSearch && matchesCategory;
+    });
+  }, [products, search, categoryFilter]);
 
-                                {/* Product 11 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image orange">☕</div>
-                                            <div>
-                                                <strong>Ceramic Coffee Mug</strong>
-                                                <small>Kitchen Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">HM-014</td>
-                                    <td>Home & Living</td>
-                                    <td className="price">$14.99</td>
-                                    <td><span className="stock good">110 in stock</span></td>
-                                    <td><span className="status active-status"><i /> Active</span></td>
-                                    <td className="date">Sep 23, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
+  // Pagination
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredProducts.length / PAGE_SIZE)
+  );
 
-                                {/* Product 12 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image blue">🧥</div>
-                                            <div>
-                                                <strong>Winter Puffer Jacket</strong>
-                                                <small>Winter Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">CL-078</td>
-                                    <td>Clothing</td>
-                                    <td className="price">$119.00</td>
-                                    <td><span className="stock low">6 in stock</span></td>
-                                    <td><span className="status draft-status"><i /> Draft</span></td>
-                                    <td className="date">Sep 22, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
+  const visibleProducts = filteredProducts.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
 
-                                {/* Product 13 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image green">🧴</div>
-                                            <div>
-                                                <strong>Daily Face Moisturizer</strong>
-                                                <small>Skincare Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">BT-019</td>
-                                    <td>Beauty</td>
-                                    <td className="price">$18.50</td>
-                                    <td><span className="stock good">87 in stock</span></td>
-                                    <td><span className="status active-status"><i /> Active</span></td>
-                                    <td className="date">Sep 21, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search, categoryFilter]);
 
-                                {/* Product 14 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image brown">🧸</div>
-                                            <div>
-                                                <strong>Soft Teddy Bear</strong>
-                                                <small>Toys Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">TY-026</td>
-                                    <td>Toys</td>
-                                    <td className="price">$29.00</td>
-                                    <td><span className="stock out">0 in stock</span></td>
-                                    <td><span className="status out-status"><i /> Out of Stock</span></td>
-                                    <td className="date">Sep 20, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
 
-                                {/* Product 15 */}
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>
-                                        <div className="product">
-                                            <div className="product-image black">🔊</div>
-                                            <div>
-                                                <strong>Portable Bluetooth Speaker</strong>
-                                                <small>Audio Collection</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="sku">EL-085</td>
-                                    <td>Electronics</td>
-                                    <td className="price">$49.99</td>
-                                    <td><span className="stock good">38 in stock</span></td>
-                                    <td><span className="status active-status"><i /> Active</span></td>
-                                    <td className="date">Sep 19, 2026</td>
-                                    <td><button className="more-btn">•••</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+  // Format currency
+  const formatPrice = (price) => {
+    const amount = Number(price);
 
-                    </div>
-                    {/* Footer */}
-                    <div className="table-footer">
-                        <span>
-                            Showing <strong>1–5</strong> of <strong>248</strong> products
-                        </span>
-                        <div className="pagination">
-                            <button disabled>‹</button>
-                            <button className="current">1</button>
-                            <button>2</button>
-                            <button>3</button>
-                            <span>...</span>
-                            <button>50</button>
-                            <button>›</button>
-                        </div>
-                    </div>
+    if (!Number.isFinite(amount)) return "—";
 
-                </section>
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 2,
+    }).format(amount);
+  };
 
-            </Layout>
+  // Format the product creation date
+  const formatDate = (date) => {
+    if (!date) return "—";
 
-        </>
+    const parsedDate = new Date(date);
+
+    if (Number.isNaN(parsedDate.getTime())) return "—";
+
+    return parsedDate.toLocaleDateString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+  };
+
+  // Resolve uploaded image URLs
+  const getImageUrl = (image) => {
+    if (!image) return "";
+
+    if (/^https?:\/\//i.test(image)) {
+      return image;
+    }
+
+    return `${API_URL.replace(/\/$/, "")}/${image.replace(/^\/+/, "")}`;
+  };
+
+  // Navigate to the edit page
+  const handleEdit = (id) => {
+    window.location.assign(`/edit-product/${id}`);
+  };
+
+  // Delete product from MongoDB
+  const handleDelete = async (product) => {
+    const confirmed = window.confirm(
+      `Are you sure you want to delete "${product.name}"?`
     );
+
+    if (!confirmed) return;
+
+    setDeletingId(product._id);
+
+    try {
+      const response = await axios.delete(
+        `${API_URL}/api/admin/products/${product._id}`
+      );
+
+      if (response.data.success) {
+        setProducts((previous) =>
+          previous.filter((item) => item._id !== product._id)
+        );
+
+        toast.success("Product deleted successfully");
+      } else {
+        toast.error(response.data.message || "Unable to delete product");
+      }
+    } catch (error) {
+      console.error(
+        "Delete product error:",
+        error.response?.data || error.message
+      );
+
+      toast.error(
+        error.response?.data?.message || "Failed to delete product"
+      );
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
+  return (
+    <Layout>
+      <main className="products-page">
+        {/* Page heading */}
+        <div className="products-page-heading">
+          <div>
+            <span className="products-eyebrow">INVENTORY MANAGEMENT</span>
+            <h1>Products</h1>
+            <p>Manage your store products in one place.</p>
+          </div>
+
+          <button
+            type="button"
+            className="products-primary-btn"
+            onClick={() => window.location.assign("/add-product")}
+          >
+            <span aria-hidden="true">＋</span> Add Product
+          </button>
+        </div>
+
+        {/* Summary cards */}
+        <section className="products-stats">
+          <article className="products-stat-card">
+            <div className="products-stat-icon products-icon-purple">
+              <span aria-hidden="true">▦</span>
+            </div>
+            <div>
+              <p>Total Products</p>
+              <h2>{products.length}</h2>
+              <span>Products in your database</span>
+            </div>
+          </article>
+
+          <article className="products-stat-card">
+            <div className="products-stat-icon products-icon-blue">
+              <span aria-hidden="true">▤</span>
+            </div>
+            <div>
+              <p>Categories</p>
+              <h2>{categories.length}</h2>
+              <span>Unique product categories</span>
+            </div>
+          </article>
+
+          <article className="products-stat-card">
+            <div className="products-stat-icon products-icon-green">
+              <span aria-hidden="true">₹</span>
+            </div>
+            <div>
+              <p>Average Price</p>
+              <h2>
+                {products.length
+                  ? formatPrice(
+                      products.reduce(
+                        (sum, product) => sum + (Number(product.price) || 0),
+                        0
+                      ) / products.length
+                    )
+                  : formatPrice(0)}
+              </h2>
+              <span>Across all products</span>
+            </div>
+          </article>
+        </section>
+
+        {/* Product table */}
+        <section className="products-table-card">
+          <div className="products-table-heading">
+            <div>
+              <h2>All Products</h2>
+              <p>
+                {filteredProducts.length}{" "}
+                {filteredProducts.length === 1 ? "product" : "products"} found
+              </p>
+            </div>
+
+            <button
+              type="button"
+              className="products-refresh-btn"
+              onClick={fetchProducts}
+              disabled={loading}
+            >
+              <span aria-hidden="true">↻</span>{" "}
+              {loading ? "Loading..." : "Refresh"}
+            </button>
+          </div>
+
+          {/* Search and filters */}
+          <div className="products-toolbar">
+            <div className="products-search">
+              <span aria-hidden="true">⌕</span>
+              <input
+                type="search"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Search by product, brand, category..."
+                aria-label="Search products"
+              />
+              {search && (
+                <button
+                  type="button"
+                  className="products-clear-search"
+                  onClick={() => setSearch("")}
+                  aria-label="Clear search"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+
+            <select
+              className="products-category-filter"
+              value={categoryFilter}
+              onChange={(event) => setCategoryFilter(event.target.value)}
+              aria-label="Filter by category"
+            >
+              <option value="all">All Categories</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="products-table-scroll">
+            <table className="products-table">
+              <thead>
+                <tr>
+                  <th>PRODUCT</th>
+                  <th>CATEGORY</th>
+                  <th>PRICE</th>
+                  <th>DISCOUNT PRICE</th>
+                  <th>DATE ADDED</th>
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {loading ? (
+                  <tr>
+                    <td colSpan="6" className="products-message-cell">
+                      <div className="products-loading">
+                        <span className="products-spinner" />
+                        <p>Loading products...</p>
+                      </div>
+                    </td>
+                  </tr>
+                ) : filteredProducts.length === 0 ? (
+                  <tr>
+                    <td colSpan="6" className="products-message-cell">
+                      <div className="products-empty">
+                        <div className="products-empty-icon">▤</div>
+                        <h3>
+                          {products.length
+                            ? "No matching products"
+                            : "No products found"}
+                        </h3>
+                        <p>
+                          {products.length
+                            ? "Try another search term or category."
+                            : "Add your first product to see it listed here."}
+                        </p>
+
+                        {products.length === 0 && (
+                          <button
+                            type="button"
+                            className="products-primary-btn"
+                            onClick={() =>
+                              window.location.assign("/add-product")
+                            }
+                          >
+                            Add Your First Product
+                          </button>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ) : (
+                  visibleProducts.map((product) => (
+                    <tr key={product._id}>
+                      <td>
+                        <div className="products-product-cell">
+                          <div className="products-product-image">
+                            {product.images?.[0] ? (
+                              <img
+                                src={getImageUrl(product.images[0])}
+                                alt={product.name || "Product"}
+                                loading="lazy"
+                                onError={(event) => {
+                                  event.currentTarget.style.display = "none";
+                                }}
+                              />
+                            ) : null}
+
+                            {!product.images?.[0] && (
+                              <span aria-hidden="true">▧</span>
+                            )}
+                          </div>
+
+                          <div className="products-product-info">
+                            <strong>{product.name || "Unnamed product"}</strong>
+                            <span>{product.brand || "No brand"}</span>
+                            <small>
+                              ID: {String(product._id || "").slice(-8)}
+                            </small>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>
+                        <span className="products-category-badge">
+                          {product.category || "Uncategorized"}
+                        </span>
+                      </td>
+
+                      <td className="products-price">
+                        {formatPrice(product.price)}
+                      </td>
+
+                      <td className="products-discount-price">
+                        {Number(product.discountPrice) > 0
+                          ? formatPrice(product.discountPrice)
+                          : "—"}
+                      </td>
+
+                      <td className="products-date">
+                        {formatDate(product.createdAt)}
+                      </td>
+
+                      <td>
+                        <div className="products-actions">
+                          <button
+                            type="button"
+                            className="products-action-btn products-view-btn"
+                            title="View product"
+                            aria-label={`View ${product.name}`}
+                            onClick={() =>
+                              window.location.assign(
+                                `/view-product/${product._id}`
+                              )
+                            }
+                          >
+                            ↗
+                          </button>
+
+                          <button
+                            type="button"
+                            className="products-action-btn products-edit-btn"
+                            title="Edit product"
+                            aria-label={`Edit ${product.name}`}
+                            onClick={() => handleEdit(product._id)}
+                          >
+                            ✎
+                          </button>
+
+                          <button
+                            type="button"
+                            className="products-action-btn products-delete-btn"
+                            title="Delete product"
+                            aria-label={`Delete ${product.name}`}
+                            disabled={deletingId === product._id}
+                            onClick={() => handleDelete(product)}
+                          >
+                            {deletingId === product._id ? "…" : "×"}
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Pagination */}
+          {!loading && filteredProducts.length > 0 && (
+            <div className="products-pagination">
+              <p>
+                Showing{" "}
+                {(currentPage - 1) * PAGE_SIZE + 1}–
+                {Math.min(currentPage * PAGE_SIZE, filteredProducts.length)}{" "}
+                of {filteredProducts.length} products
+              </p>
+
+              <div className="products-pagination-controls">
+                <button
+                  type="button"
+                  disabled={currentPage === 1}
+                  onClick={() =>
+                    setCurrentPage((page) => Math.max(1, page - 1))
+                  }
+                >
+                  Previous
+                </button>
+
+                {Array.from(
+                  { length: totalPages },
+                  (_, index) => index + 1
+                )
+                  .filter(
+                    (page) =>
+                      page === 1 ||
+                      page === totalPages ||
+                      Math.abs(page - currentPage) <= 1
+                  )
+                  .map((page, index, pages) => (
+                    <React.Fragment key={page}>
+                      {index > 0 && page - pages[index - 1] > 1 && (
+                        <span className="products-page-dots">…</span>
+                      )}
+
+                      <button
+                        type="button"
+                        className={
+                          currentPage === page
+                            ? "products-page-number active"
+                            : "products-page-number"
+                        }
+                        onClick={() => setCurrentPage(page)}
+                        aria-current={
+                          currentPage === page ? "page" : undefined
+                        }
+                      >
+                        {page}
+                      </button>
+                    </React.Fragment>
+                  ))}
+
+                <button
+                  type="button"
+                  disabled={currentPage === totalPages}
+                  onClick={() =>
+                    setCurrentPage((page) =>
+                      Math.min(totalPages, page + 1)
+                    )
+                  }
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
+        </section>
+      </main>
+    </Layout>
+  );
 }
 
 export default Products;
