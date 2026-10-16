@@ -1,3 +1,4 @@
+
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -197,7 +198,7 @@ function Products() {
           <button
             type="button"
             className="products-primary-btn"
-            onClick={() => window.location.assign("/add-product")}
+            onClick={() => window.location.assign("/addproduct")}
           >
             <span aria-hidden="true">＋</span> Add Product
           </button>
@@ -415,19 +416,7 @@ function Products() {
 
                       <td>
                         <div className="products-actions">
-                          <button
-                            type="button"
-                            className="products-action-btn products-view-btn"
-                            title="View product"
-                            aria-label={`View ${product.name}`}
-                            onClick={() =>
-                              window.location.assign(
-                                `/view-product/${product._id}`
-                              )
-                            }
-                          >
-                            ↗
-                          </button>
+                          
 
                           <button
                             type="button"

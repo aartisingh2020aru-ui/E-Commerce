@@ -1,13 +1,11 @@
+
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
 import Layout from "./Layout";
-import './AddProduct.css';
 
 function AddProduct() {
-
     const navigate = useNavigate();
 
     const [name, setName] = useState("");
@@ -19,9 +17,6 @@ function AddProduct() {
     const [discountPrice, setDiscountPrice] = useState("");
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
-
-
-
 
     // Handle image selection
     const handleImageChange = (e) => {
@@ -46,7 +41,7 @@ function AddProduct() {
             toast.error(
                 "Only JPG, PNG and WEBP images under 5 MB are allowed."
             );
-            e.target.value = "";
+            e.target.value = ""; 
             return;
         }
 
@@ -162,295 +157,289 @@ function AddProduct() {
         }
     };
 
-    // =================================================================
     return (
-        <>
+        <Layout>
+            <section className="dashboard-content">
 
-            <Layout>
-                {/* Main Content */}
-                <main className="main-content">
-                    {/* Header */}
-                    <header className="topbar">
-                        <div>
-                            <p className="breadcrumb">Dashboard / Products / Add Product</p>
-                            <h1>Add New Product</h1>
-                            <p className="subtitle">Create and manage your product listing.</p>
-                        </div>
-                        <div className="admin-profile">
-                            <div className="notification">♧</div>
-                            <div className="avatar">A</div>
-                            <div>
-                                <strong>Admin</strong>
-                                <small>Store Manager</small>
+                {/* Breadcrumb */}
+                <div className="breadcrumb">
+                    <a href="/dashboard">Dashboard</a>
+                    <span>/</span>
+                    <a href="/products">Products</a>
+                    <span>/</span>
+                    <strong>Add Product</strong>
+                </div>
+
+                {/* Heading */}
+                <div className="add-product-heading">
+                    <div>
+                        <h2>Add New Product</h2>
+                        <p>
+                            Fill in the information below to add a
+                            new product.
+                        </p>
+                    </div>
+                </div>
+
+                <form
+                    className="product-form"
+                    onSubmit={handleSubmit}
+                >
+                    <div className="product-form-main">
+
+                        {/* Basic Information */}
+                        <div className="form-card">
+                            <div className="form-card-header">
+                                <h3>Basic Information</h3>
+                                <p>
+                                    Enter the basic details of your product.
+                                </p>
                             </div>
-                        </div>
-                    </header>
-                    <form
-                        className="product-form"
-                        onSubmit={handleSubmit}>
 
-                        <div className="product-form-main">
-
-                            {/* Basic Information */}
-                            <div className="form-card">
-                                <div className="form-card-header">
-                                    <h3>Basic Information</h3>
-                                    <p>
-                                        Enter the basic details of your product.
-                                    </p>
+                            <div className="form-card-body">
+                                <div className="form-group full-width">
+                                    <label htmlFor="product-name">
+                                        Product Name <span>*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="product-name"
+                                        value={name}
+                                        onChange={(e) =>
+                                            setName(e.target.value)
+                                        }
+                                        placeholder="Enter product name"
+                                        required
+                                    />
                                 </div>
 
-                                <div className="form-card-body">
-                                    <div className="form-group full-width">
-                                        <label htmlFor="product-name">
-                                            Product Name <span>*</span>
+                                <div className="form-row">
+                                    <div className="form-group">
+                                        <label htmlFor="brand">
+                                            Brand
                                         </label>
                                         <input
                                             type="text"
-                                            id="product-name"
-                                            value={name}
+                                            id="brand"
+                                            value={brand}
                                             onChange={(e) =>
-                                                setName(e.target.value)
+                                                setBrand(e.target.value)
                                             }
-                                            placeholder="Enter product name"
-                                            required
+                                            placeholder="Enter brand name"
                                         />
                                     </div>
 
-                                    <div className="form-row">
-                                        <div className="form-group">
-                                            <label htmlFor="brand">
-                                                Brand
-                                            </label>
+                                    <div className="form-group">
+                                        <label htmlFor="category">
+                                            Category <span>*</span>
+                                        </label>
+                                        <select
+                                            id="category"
+                                            value={category}
+                                            onChange={(e) =>
+                                                setCategory(e.target.value)
+                                            }
+                                            required
+                                        >
+                                            <option value="">
+                                                Select category
+                                            </option>
+                                            <option value="Electronics">
+                                                Electronics
+                                            </option>
+                                            <option value="Fashion">
+                                                Fashion
+                                            </option>
+                                            <option value="Accessories">
+                                                Accessories
+                                            </option>
+                                            <option value="Home & Kitchen">
+                                                Home &amp; Kitchen
+                                            </option>
+                                            <option value="Beauty">
+                                                Beauty
+                                            </option>
+                                            <option value="Sports">
+                                                Sports
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div className="form-group full-width">
+                                    <label htmlFor="short-description">
+                                        Short Description
+                                    </label>
+                                    <textarea
+                                        id="short-description"
+                                        rows={4}
+                                        maxLength={200}
+                                        value={shortDescription}
+                                        onChange={(e) =>
+                                            setShortDescription(
+                                                e.target.value
+                                            )
+                                        }
+                                        placeholder="Write a short description..."
+                                    />
+                                    <small className="input-help">
+                                        {shortDescription.length}/200 characters
+                                    </small>
+                                </div>
+
+                                <div className="form-group full-width">
+                                    <label htmlFor="description">
+                                        Product Description <span>*</span>
+                                    </label>
+                                    <textarea
+                                        id="description"
+                                        rows={8}
+                                        value={description}
+                                        onChange={(e) =>
+                                            setDescription(e.target.value)
+                                        }
+                                        placeholder="Write complete product description..."
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Pricing */}
+                        <div className="form-card">
+                            <div className="form-card-header">
+                                <h3>Pricing</h3>
+                                <p>
+                                    Set the product price and discount.
+                                </p>
+                            </div>
+
+                            <div className="form-card-body">
+                                <div className="form-row">
+                                    <div className="form-group">
+                                        <label htmlFor="price">
+                                            Price <span>*</span>
+                                        </label>
+                                        <div className="input-prefix">
+                                            <span>₹</span>
                                             <input
-                                                type="text"
-                                                id="brand"
-                                                value={brand}
+                                                type="number"
+                                                id="price"
+                                                min="0"
+                                                step="0.01"
+                                                value={price}
                                                 onChange={(e) =>
-                                                    setBrand(e.target.value)
+                                                    setPrice(e.target.value)
                                                 }
-                                                placeholder="Enter brand name"
+                                                placeholder="0.00"
+                                                required
                                             />
                                         </div>
+                                    </div>
 
-                                        <div className="form-group">
-                                            <label htmlFor="category">
-                                                Category <span>*</span>
-                                            </label>
-                                            <select
-                                                id="category"
-                                                value={category}
+                                    <div className="form-group">
+                                        <label htmlFor="discount-price">
+                                            Discount Price
+                                        </label>
+                                        <div className="input-prefix">
+                                            <span>₹</span>
+                                            <input
+                                                type="number"
+                                                id="discount-price"
+                                                min="0"
+                                                step="0.01"
+                                                value={discountPrice}
                                                 onChange={(e) =>
-                                                    setCategory(e.target.value)
+                                                    setDiscountPrice(
+                                                        e.target.value
+                                                    )
                                                 }
-                                                required
-                                            >
-                                                <option value="">
-                                                    Select category
-                                                </option>
-                                                <option value="Electronics">
-                                                    Electronics
-                                                </option>
-                                                <option value="Fashion">
-                                                    Fashion
-                                                </option>
-                                                <option value="Accessories">
-                                                    Accessories
-                                                </option>
-                                                <option value="Home & Kitchen">
-                                                    Home &amp; Kitchen
-                                                </option>
-                                                <option value="Beauty">
-                                                    Beauty
-                                                </option>
-                                                <option value="Sports">
-                                                    Sports
-                                                </option>
-                                            </select>
+                                                placeholder="0.00"
+                                            />
                                         </div>
-                                    </div>
-
-                                    <div className="form-group full-width">
-                                        <label htmlFor="short-description">
-                                            Short Description
-                                        </label>
-                                        <textarea
-                                            id="short-description"
-                                            rows={4}
-                                            maxLength={200}
-                                            value={shortDescription}
-                                            onChange={(e) =>
-                                                setShortDescription(
-                                                    e.target.value
-                                                )
-                                            }
-                                            placeholder="Write a short description..."
-                                        />
-                                        <small className="input-help">
-                                            {shortDescription.length}/200 characters
-                                        </small>
-                                    </div>
-
-                                    <div className="form-group full-width">
-                                        <label htmlFor="description">
-                                            Product Description <span>*</span>
-                                        </label>
-                                        <textarea
-                                            id="description"
-                                            rows={8}
-                                            value={description}
-                                            onChange={(e) =>
-                                                setDescription(e.target.value)
-                                            }
-                                            placeholder="Write complete product description..."
-                                            required
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Pricing */}
-                            <div className="form-card">
-                                <div className="form-card-header">
-                                    <h3>Pricing</h3>
-                                    <p>
-                                        Set the product price and discount.
-                                    </p>
-                                </div>
-
-                                <div className="form-card-body">
-                                    <div className="form-row">
-                                        <div className="form-group">
-                                            <label htmlFor="price">
-                                                Price <span>*</span>
-                                            </label>
-                                            <div className="input-prefix">
-                                                <span>₹</span>
-                                                <input
-                                                    type="number"
-                                                    id="price"
-                                                    min="0"
-                                                    step="0.01"
-                                                    value={price}
-                                                    onChange={(e) =>
-                                                        setPrice(e.target.value)
-                                                    }
-                                                    placeholder="0.00"
-                                                    required
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <label htmlFor="discount-price">
-                                                Discount Price
-                                            </label>
-                                            <div className="input-prefix">
-                                                <span>₹</span>
-                                                <input
-                                                    type="number"
-                                                    id="discount-price"
-                                                    min="0"
-                                                    step="0.01"
-                                                    value={discountPrice}
-                                                    onChange={(e) =>
-                                                        setDiscountPrice(
-                                                            e.target.value
-                                                        )
-                                                    }
-                                                    placeholder="0.00"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Images */}
-                            <div className="form-card">
-                                <div className="form-card-header">
-                                    <h3>Product Images</h3>
-                                    <p>Upload product images.</p>
-                                </div>
-
-                                <div className="form-card-body">
-                                    <div className="image-upload">
-                                        <div className="upload-icon">↑</div>
-                                        <h4>Upload Product Images</h4>
-                                        <p>Select images from your computer</p>
-
-                                        <label htmlFor="product-images">
-                                            Browse Files
-                                        </label>
-
-                                        <input
-                                            type="file"
-                                            id="product-images"
-                                            multiple
-                                            accept="image/jpeg,image/png,image/webp"
-                                            onChange={handleImageChange}
-                                        />
-
-                                        <small>
-                                            JPG, PNG or WEBP. Maximum 5 MB each.
-                                        </small>
-                                    </div>
-
-                                    <div className="image-preview-list">
-                                        {images.map((image, index) => (
-                                            <div
-                                                className="image-preview"
-                                                key={`${image.name}-${index}`}
-                                            >
-                                                <img
-                                                    src={URL.createObjectURL(image)}
-                                                    alt={image.name}
-                                                    width="100"
-                                                    height="100"
-                                                    style={{
-                                                        objectFit: "cover"
-                                                    }}
-                                                />
-
-                                                <button
-                                                    type="button"
-                                                    onClick={() =>
-                                                        removeImage(index)
-                                                    }
-                                                    aria-label="Remove image"
-                                                >
-                                                    ×
-                                                </button>
-                                            </div>
-                                        ))}
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Actions */}
-                        <div className="form-actions">
-                            <button
-                                type="button"
-                                onClick={() => navigate("/products")}
-                                disabled={loading}
-                            >
-                                Cancel
-                            </button>
+                        {/* Images */}
+                        <div className="form-card">
+                            <div className="form-card-header">
+                                <h3>Product Images</h3>
+                                <p>Upload product images.</p>
+                            </div>
 
-                            <button
-                                type="submit"
-                                className="save-product-btn"
-                                disabled={loading}
-                            >
-                                {loading ? "Saving..." : "Save Product"}
-                            </button>
+                            <div className="form-card-body">
+                                <div className="image-upload">
+                                    <div className="upload-icon">↑</div>
+                                    <h4>Upload Product Images</h4>
+                                    <p>Select images from your computer</p>
+
+                                    <label htmlFor="product-images">
+                                        Browse Files
+                                    </label>
+
+                                    <input
+                                        type="file"
+                                        id="product-images"
+                                        multiple
+                                        accept="image/jpeg,image/png,image/webp"
+                                        onChange={handleImageChange}
+                                    />
+
+                                    <small>
+                                        JPG, PNG or WEBP. Maximum 5 MB each.
+                                    </small>
+                                </div>
+
+                                <div className="image-preview-list">
+                                    {images.map((image, index) => (
+                                        <div
+                                            className="image-preview"
+                                            key={`${image.name}-${index}`}
+                                        >
+                                            <img
+                                                src={URL.createObjectURL(image)}
+                                                alt={image.name}
+                                                width="100"
+                                                height="100"
+                                                style={{
+                                                    objectFit: "cover"
+                                                }}
+                                            />
+
+                                            <button
+                                                type="button"
+                                                onClick={() =>
+                                                    removeImage(index)
+                                                }
+                                                aria-label="Remove image"
+                                            >
+                                                ×
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
-                    </form>
-                </main>
-            </Layout>
+                    </div>
 
-        </>
+                    {/* Actions */}
+                    <div className="form-actions">
+                       
+
+                        <button
+                            type="submit"
+                            className="save-product-btn"
+                            disabled={loading}
+                        >
+                            {loading ? "Saving..." : "Save Product"}
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </Layout>
     );
 }
+
 export default AddProduct;

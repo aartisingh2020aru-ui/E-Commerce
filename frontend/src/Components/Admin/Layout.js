@@ -1,41 +1,53 @@
 import React from "react";
 import './Dashboard.css';
-
 import { ToastContainer, toast } from 'react-toastify';
 import Sidebar from "./Sidebar";
 
+
 function Layout({ children }) {
     return (
-
-        <>
-            <Sidebar />
-            <main className="main">
+        <div className="admin-wrapper">
+          <Sidebar />
+            <main className="main-content">
                 <ToastContainer />
-                
-                <header className="topbar">
-                    <div className="search">
-                        <input type="text" placeholder="Search anything..." />
-                    </div>
-                    <div className="admin">
-                        <div className="notification">
-                            🔔
+                <header className="top-header">
+                    <div className="header-left">
+                        <button className="menu-btn">
+                            ☰
+                        </button>
+                        <div>
+                            <h1>Dashboard</h1>
+                            <p>Welcome back, Admin!</p>
                         </div>
-                        <div className="profile">
-                            <img src="https://i.pravatar.cc/100?img=12" alt="Admin" />
+                    </div>
+                    <div className="header-right">
+                        {/* Search */}
+                        <div className="search-box">
+                            <span>⌕</span>
+                            <input type="text" placeholder="Search..." />
+                        </div>
+                        {/* Notification */}
+                        <button className="notification">
+                            🔔
+                            <span className="notification-dot" />
+                        </button>
+                        {/* Admin Profile */}
+                        <div className="admin-profile">
+                            <div className="profile-image">
+                                A
+                            </div>
                             <div className="profile-info">
-                                <strong>John Doe</strong>
+                                <strong>Admin</strong>
                                 <small>Administrator</small>
                             </div>
+                            <span className="profile-arrow">⌄</span>
                         </div>
                     </div>
                 </header>
-
                 {children}
             </main>
 
-        </>
-
+        </div>
     );
 }
-
 export default Layout;
