@@ -1,28 +1,37 @@
 const express = require("express");
-
-const {
-  createProduct,
-  getProducts,
-  getProduct,
-  updateProduct,
-  deleteProduct,
-} = require("../controllers/productController");
-
 const router = express.Router();
 
-// CREATE
-router.post("/addproduct", createProduct);
+const upload = require("../middleware/upload");
 
-// READ ALL
-router.post("/addProduct", createProduct);
+const {
+    createProduct,
+    getProducts,
+    getProduct,
+    updateProduct,
+    deleteProduct
+} = require("../controllers/productController");
 
-// READ ONE
-router.get("/getProduct:id", getProduct);
+// CREATE PRODUCT
+router.post(
+    "/products",
+    upload.array("images", 5),
+    createProduct
+);
 
-// UPDATE
-router.put("/updateProduct:id", updateProduct);
+// GET ALL PRODUCTS
+router.get("/products", getProducts);
 
-// DELETE
-router.delete("/deleteProduct:id", deleteProduct);
+// GET SINGLE PRODUCT
+router.get("/products/:id", getProduct);
+
+// UPDATE PRODUCT - Multer is required for image uploads
+router.put(
+    "/products/:id",
+    upload.array("images", 5),
+    updateProduct
+);
+
+// DELETE PRODUCT
+router.delete("/products/:id", deleteProduct);
 
 module.exports = router;
