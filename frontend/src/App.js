@@ -27,12 +27,13 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
-          <Route path="*" element={<PageNotFound />} />
           <Route path="/product" element={<Product />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/addproduct" element={<AddProduct />} />
           <Route path="/products" element={<Products />} />
-          <Route path='/editproduct' element={<EditProduct/>}  />
+          <Route path='/edit-product/:id' element={<EditProduct/>}/>
+          <Route path="*" element={<PageNotFound />} />
+
           
         </Routes>
 
