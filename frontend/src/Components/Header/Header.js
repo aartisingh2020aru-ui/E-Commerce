@@ -189,6 +189,7 @@ function Header() {
         </div>
       </div>
       {/* Start Header Mid */}
+      
       <div className="rbt-header-middle position-relative rbt-header-mid-1 rbt-bg-color-primary d-none d-xl-block">
         <div className="container">
           <div className="rbt-header-sec align-items-center @@flexDirection">
@@ -215,48 +216,8 @@ function Header() {
                                 </div>
                               </div>
                             </div>
-                            {/* End Single Demo  */}
-                            {/* Start Single Demo  */}
-                            <div className="col-lg-1-5 col-md-12 col-sm-12 col-12 single-mega-item rbt-scroll-trigger fade_in animation-order-1">
-                              <div className="demo-single rbt-scroll-trigger zoom_in animation-order-2">
-                                <div className="inner">
-                                  <div className="thumbnail">
-                                    <a href="home-fashion.html"><img src="assets/images/splash/demo-pages/demo-5.webp" alt="Demo Images" /></a>
-                                  </div>
-                                  <div className="content">
-                                    <h2 className="rbt-title h4"><a href="home-fashion.html">Fashion One</a></h2>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            {/* End Single Demo  */}
-                            {/* Start Single Demo  */}
-                            <div className="col-lg-1-5 col-md-12 col-sm-12 col-12 single-mega-item rbt-scroll-trigger fade_in animation-order-1">
-                              <div className="demo-single rbt-scroll-trigger zoom_in animation-order-3">
-                                <div className="inner">
-                                  <div className="thumbnail">
-                                    <a href="home-furniture.html"><img src="assets/images/splash/demo-pages/demo-8.webp" alt="Demo Images" /></a>
-                                  </div>
-                                  <div className="content">
-                                    <h2 className="rbt-title h4"><a href="home-furniture.html">Furniture One</a></h2>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            {/* End Single Demo  */}
-                            {/* Start Single Demo  */}
-                            <div className="col-lg-1-5 col-md-12 col-sm-12 col-12 single-mega-item rbt-scroll-trigger fade_in animation-order-1">
-                              <div className="demo-single rbt-scroll-trigger zoom_in animation-order-4">
-                                <div className="inner">
-                                  <div className="thumbnail">
-                                    <a href="home-printing-service.html"><img src="assets/images/splash/demo-pages/demo-6.webp" alt="Demo Images" /></a>
-                                  </div>
-                                  <div className="content">
-                                    <h2 className="rbt-title h4"><a href="home-printing-service.html">Print Service One</a></h2>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            
+                            
                             {/* End Single Demo  */}
                             {/* Start Single Demo  */}
                             <div className="col-lg-1-5 col-md-12 col-sm-12 col-12 single-mega-item rbt-scroll-trigger fade_in animation-order-1">
@@ -272,6 +233,7 @@ function Header() {
                                 </div>
                               </div>
                             </div>
+                            
                             {/* End Single Demo  */}
                             {/* Start Single Demo  */}
                             <div className="col-lg-1-5 col-md-12 col-sm-12 col-12 single-mega-item rbt-scroll-trigger fade_in animation-order-1">

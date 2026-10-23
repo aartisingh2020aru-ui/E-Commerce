@@ -23,6 +23,10 @@ function Sidebar() {
                     <span className="nav-icon">▤</span>
                     <span>Add Product</span>
                 </Link>
+                <Link to="/editproduct" className="nav-link">
+                    <span className="nav-icon">▤</span>
+                    <span>Edit Product</span>
+                </Link>
                 
             </nav>
            

@@ -737,7 +737,7 @@ body {
 
     min-height: 10px;
 
-    background: var(--primary);
+      background: linear-gradient(to top,  #700cc2, #e0b1ee);
 
     border-radius: 5px 5px 0 0;
 
@@ -746,7 +746,7 @@ body {
 
 
 .bar:hover {
-    background: var(--primary-dark);
+    background: linear-gradient(to right, pink 0% 50%, turquoise 50% 100%);
 
     transform: translateY(-3px);
 }
